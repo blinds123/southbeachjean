@@ -174,18 +174,18 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif}
 @keyframes pulse-badge{0%,100%{box-shadow:0 2px 8px rgba(220,53,69,0.3);transform:scale(1)}50%{box-shadow:0 4px 16px rgba(220,53,69,0.5);transform:scale(1.05)}}
 @keyframes shimmer{0%{left:-100%}50%{left:100%}100%{left:100%}}
 
-/* GDPR Cookie Consent Banner */
-.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:#fff;box-shadow:0 -4px 20px rgba(0,0,0,0.15);padding:20px;z-index:10001;border-top:3px solid #5B7C99;display:none;animation:slideUp 0.4s ease}
-.cookie-banner.show{display:block}
-.cookie-content{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.cookie-text{flex:1;min-width:280px;font-size:14px;color:#333;line-height:1.6}
-.cookie-text a{color:#5B7C99;text-decoration:underline;font-weight:600}
-.cookie-buttons{display:flex;gap:12px;flex-wrap:wrap}
-.cookie-btn{padding:12px 24px;border:none;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;transition:all 0.2s;min-height:44px}
-.cookie-btn.accept{background:#5B7C99;color:#fff}
-.cookie-btn.accept:hover{background:#2F4050;transform:translateY(-2px)}
-.cookie-btn.decline{background:#f0f0f0;color:#333}
-.cookie-btn.decline:hover{background:#e0e0e0}
+
+/* FAQ Accordion Styles */
+.faq-accordion{display:flex;flex-direction:column;gap:16px}
+.faq-item{background:#fff;border-radius:12px;border:2px solid #e0e0e0;overflow:hidden;transition:all 0.3s ease}
+.faq-item:hover{border-color:#5B7C99}
+.faq-header{width:100%;display:flex;justify-content:space-between;align-items:center;padding:24px;background:none;border:none;cursor:pointer;text-align:left;transition:background 0.2s ease;gap:20px}
+.faq-header:hover{background:#f9fafb}
+.faq-chevron{color:#666;transition:transform 0.3s ease}
+.faq-item.active .faq-chevron{transform:rotate(180deg)}
+.faq-item.active .faq-header{background:#f9fafb}
+.faq-content{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s ease}
+.faq-item.active .faq-content{max-height:500px;padding:20px 24px!important}
 
 /* Custom SVG Icon Styles */
 .feature-icon{width:64px;height:64px;margin:0 auto 20px;position:relative}
@@ -224,9 +224,6 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif}
 .footer-bottom{border-top:1px solid #333;padding-top:20px;text-align:center;color:#999;font-size:13px}
 
 @media(max-width:768px){
-.cookie-content{flex-direction:column;align-items:stretch}
-.cookie-buttons{width:100%}
-.cookie-btn{flex:1}
 .footer-content{grid-template-columns:1fr}
 .purchase-toast{left:10px;bottom:80px;max-width:calc(100vw - 20px);padding:12px 16px}
 .countdown-timer{flex-direction:column;gap:8px;padding:10px 16px}
@@ -361,7 +358,7 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif}
         "@type": "Person",
         "name": "Sarah K."
       },
-      "reviewBody": "{{TESTIMONIAL_1_TEXT}} and everyone keeps asking where I got it.",
+      "reviewBody": "obsessed with these jeans!! the low rise is perfect and the flare is so flattering. literally my new go-to pair and everyone keeps asking where I got it.",
       "datePublished": "2025-11-25"
     },
     {
@@ -375,7 +372,7 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif}
         "@type": "Person",
         "name": "Emma L."
       },
-      "reviewBody": "{{TESTIMONIAL_2_TEXT}} that doesn't break the bank. The quality is incredible.",
+      "reviewBody": "finally found THE jeans. the medium wash is so versatile and the cotton feels amazing. not taking these off that doesn't break the bank. The quality is incredible.",
       "datePublished": "2025-11-24"
     }
   ],
@@ -433,26 +430,38 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif}
       <p style="color:#666;font-size:16px">The matching bundle pairs perfectly with your jeans</p>
     </div>
     <div style="background:#f8f9fa;border-radius:12px;padding:24px;margin-bottom:30px">
-      <div style="display:flex;gap:20px;align-items:center">
-        <div style="flex:1">
-          <h3 style="font-size:20px;font-weight:700;margin-bottom:8px">Complete Your Look Bundle</h3>
-          <ul style="list-style:none;padding:0;margin:0">
-            <li style="margin-bottom:6px">✓ Seamless underwear - no VPL</li><li style="margin-bottom:6px">✓ Body shimmer oil - that glow</li><li style="margin-bottom:6px">✓ Hair claw clip - main character hair</li>
-          </ul>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px">
+        <div style="text-align:center">
+          <img src="./images/order-bump/body-tape.jpg" alt="Fashion body tape" style="width:100%;height:auto;border-radius:8px;margin-bottom:8px;object-fit:cover;aspect-ratio:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Body Tape</div>
+          <div style="font-size:12px;color:#666;margin-bottom:4px">keeps everything in place</div>
+          <div style="font-size:12px;color:#28a745;font-weight:700">$20 value</div>
         </div>
         <div style="text-align:center">
-          <div style="font-size:14px;color:#999;text-decoration:line-through">$49</div>
-          <div style="font-size:32px;font-weight:700;color:#28a745">$10</div>
-          <div style="background:#28a745;color:#fff;padding:4px 12px;border-radius:12px;font-size:12px;font-weight:700;margin-top:8px">80% OFF</div>
+          <img src="./images/order-bump/shapewear.jpg" alt="Seamless shapewear shorts" style="width:100%;height:auto;border-radius:8px;margin-bottom:8px;object-fit:cover;aspect-ratio:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Shapewear</div>
+          <div style="font-size:12px;color:#666;margin-bottom:4px">smooth confidence</div>
+          <div style="font-size:12px;color:#28a745;font-weight:700">$35 value</div>
         </div>
+        <div style="text-align:center">
+          <img src="./images/order-bump/earrings.jpg" alt="Statement earrings" style="width:100%;height:auto;border-radius:8px;margin-bottom:8px;object-fit:cover;aspect-ratio:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Earrings</div>
+          <div style="font-size:12px;color:#666;margin-bottom:4px">complete the look</div>
+          <div style="font-size:12px;color:#28a745;font-weight:700">$30 value</div>
+        </div>
+      </div>
+      <div style="text-align:center;padding-top:16px;border-top:2px dashed #ddd">
+        <div style="font-size:14px;color:#999;margin-bottom:4px">Regular Bundle Price: <span style="text-decoration:line-through">$85</span></div>
+        <div style="font-size:32px;font-weight:700;color:#28a745;margin-bottom:8px">$15 Today</div>
+        <div style="background:#28a745;color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:700;display:inline-block">SAVE 82% OFF!</div>
       </div>
     </div>
     <div id="orderSummary" style="background:#fff;border:2px solid #e0e0e0;border-radius:12px;padding:20px;margin-bottom:24px">
       <!-- Dynamic order summary -->
     </div>
     <button onclick="acceptOrderBump()" style="width:100%;background:#28a745;color:#fff;border:none;padding:20px;border-radius:12px;font-size:18px;font-weight:700;cursor:pointer;margin-bottom:12px;transition:all 0.2s;min-height:64px;box-shadow:0 4px 12px rgba(40,167,69,0.3)">
-      <div style="font-size:20px;margin-bottom:4px">YES! Add bundle - $10</div>
-      <div style="font-size:13px;opacity:0.9;font-weight:600">Complete Your Luxury Set (80% OFF)</div>
+      <div style="font-size:20px;margin-bottom:4px">YES! Add bundle - $15</div>
+      <div style="font-size:13px;opacity:0.9;font-weight:600">Complete Your Look (82% OFF)</div>
     </button>
     <button onclick="declineOrderBump()" style="width:100%;background:#fff;color:#666;border:2px solid #ddd;padding:14px;border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;min-height:50px">
       No thanks, I'll just take the jeans
@@ -487,7 +496,7 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif}
   <div class="container">
     <div class="product-hero">
       <div class="gallery">
-        <img class="main-img fade-in visible" id="heroImage" src="./images/product/product-01.png" alt="Luxurious medium wash denim jeans - 100% premium cotton crew neck in rich vintage medium blue, showcasing soft texture and timeless elegant design" width="600" height="800" loading="eager" decoding="async">
+        <img class="main-img fade-in visible" id="heroImage" src="./images/product/product-01.avif" alt="Luxurious medium wash denim jeans - 100% premium cotton crew neck in rich vintage medium blue, showcasing soft texture and timeless elegant design" width="600" height="800" loading="eager" decoding="async">
         <div id="thumbs" style="display:flex;gap:10px;margin-top:15px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin"></div>
       </div>
 
@@ -528,12 +537,105 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif}
         <div style="margin:20px 0">
           <div style="font-weight:600;font-size:14px;margin-bottom:12px;color:#1a1a1a">Select Size:</div>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <button class="size-btn" id="sizeXS" onclick="selectSize(this, 'XS')">XS</button>
-            <button class="size-btn" onclick="selectSize(this, 'S')">S</button>
-            <button class="size-btn selected" onclick="selectSize(this, 'M')">M</button>
-            <button class="size-btn" onclick="selectSize(this, 'L')">L</button>
-            <button class="size-btn" disabled onclick="selectSize(this, 'XL')">XL<span style="display:block;font-size:10px;color:#dc3545">Sold Out</span></button>
-            <button class="size-btn" disabled onclick="selectSize(this, 'XXL')">XXL<span style="display:block;font-size:10px;color:#dc3545">Sold Out</span></button>
+            <button class="size-btn" onclick="selectSize(this, '23')">23</button>
+            <button class="size-btn" onclick="selectSize(this, '24')">24</button>
+            <button class="size-btn" onclick="selectSize(this, '25')">25</button>
+            <button class="size-btn selected" onclick="selectSize(this, '26')">26</button>
+            <button class="size-btn" onclick="selectSize(this, '27')">27</button>
+            <button class="size-btn" onclick="selectSize(this, '28')">28</button>
+            <button class="size-btn" onclick="selectSize(this, '29')">29</button>
+            <button class="size-btn" onclick="selectSize(this, '30')">30</button>
+            <button class="size-btn" disabled onclick="selectSize(this, '31')">31<span style="display:block;font-size:10px;color:#dc3545">Sold Out</span></button>
+            <button class="size-btn" disabled onclick="selectSize(this, '32')">32<span style="display:block;font-size:10px;color:#dc3545">Sold Out</span></button>
+          </div>
+        </div>
+
+        <!-- Product Description Accordion -->
+        <div style="margin:30px 0">
+          <div class="faq-accordion">
+            <div class="faq-item active">
+              <button class="faq-header" onclick="toggleFaq(this)" aria-expanded="true">
+                <span style="font-weight:700;font-size:16px;color:#1a1a1a;text-align:left">Product Details</span>
+                <svg class="faq-chevron" style="width:20px;height:20px;transition:transform 0.3s ease;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div class="faq-content" style="display:block;padding:20px 24px;color:#666;line-height:1.8;font-size:15px">
+                <p style="margin-bottom:16px">The South Beach Jean is your new wardrobe essential. Featuring a flattering low-rise fit that sits just right, a relaxed shape through the thigh, and a subtle flare that elongates your legs effortlessly.</p>
+                <ul style="list-style:none;padding:0;margin:0">
+                  <li style="padding:8px 0;border-bottom:1px solid #f0f0f0"><strong>Material:</strong> 100% premium cotton</li>
+                  <li style="padding:8px 0;border-bottom:1px solid #f0f0f0"><strong>Wash:</strong> Hand-sanded vintage medium blue</li>
+                  <li style="padding:8px 0;border-bottom:1px solid #f0f0f0"><strong>Fit:</strong> Low-rise, relaxed thigh, subtle flare</li>
+                  <li style="padding:8px 0"><strong>Features:</strong> R-sculpted pockets, 4-pocket design</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-header" onclick="toggleFaq(this)" aria-expanded="false">
+                <span style="font-weight:700;font-size:16px;color:#1a1a1a;text-align:left">Size & Fit Guide</span>
+                <svg class="faq-chevron" style="width:20px;height:20px;transition:transform 0.3s ease;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div class="faq-content" style="display:none;padding:20px 24px;color:#666;line-height:1.8;font-size:15px">
+                <p style="margin-bottom:16px">The South Beach Jean runs true to size with a low-rise fit and relaxed shape through the thigh.</p>
+                <table style="width:100%;border-collapse:collapse;margin:16px 0">
+                  <thead>
+                    <tr style="background:#f9fafb">
+                      <th style="padding:12px;text-align:left;border:1px solid #e0e0e0;font-weight:700">Size</th>
+                      <th style="padding:12px;text-align:left;border:1px solid #e0e0e0;font-weight:700">Waist</th>
+                      <th style="padding:12px;text-align:left;border:1px solid #e0e0e0;font-weight:700">Hip</th>
+                      <th style="padding:12px;text-align:left;border:1px solid #e0e0e0;font-weight:700">Inseam</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td style="padding:10px;border:1px solid #e0e0e0">23</td><td style="padding:10px;border:1px solid #e0e0e0">24"</td><td style="padding:10px;border:1px solid #e0e0e0">33"</td><td style="padding:10px;border:1px solid #e0e0e0">32"</td></tr>
+                    <tr><td style="padding:10px;border:1px solid #e0e0e0">24</td><td style="padding:10px;border:1px solid #e0e0e0">25"</td><td style="padding:10px;border:1px solid #e0e0e0">34"</td><td style="padding:10px;border:1px solid #e0e0e0">32"</td></tr>
+                    <tr><td style="padding:10px;border:1px solid #e0e0e0">25</td><td style="padding:10px;border:1px solid #e0e0e0">26"</td><td style="padding:10px;border:1px solid #e0e0e0">35"</td><td style="padding:10px;border:1px solid #e0e0e0">32"</td></tr>
+                    <tr><td style="padding:10px;border:1px solid #e0e0e0">26</td><td style="padding:10px;border:1px solid #e0e0e0">27"</td><td style="padding:10px;border:1px solid #e0e0e0">36"</td><td style="padding:10px;border:1px solid #e0e0e0">32"</td></tr>
+                    <tr><td style="padding:10px;border:1px solid #e0e0e0">27</td><td style="padding:10px;border:1px solid #e0e0e0">28"</td><td style="padding:10px;border:1px solid #e0e0e0">37"</td><td style="padding:10px;border:1px solid #e0e0e0">32"</td></tr>
+                    <tr><td style="padding:10px;border:1px solid #e0e0e0">28</td><td style="padding:10px;border:1px solid #e0e0e0">29"</td><td style="padding:10px;border:1px solid #e0e0e0">38"</td><td style="padding:10px;border:1px solid #e0e0e0">32"</td></tr>
+                    <tr><td style="padding:10px;border:1px solid #e0e0e0">29</td><td style="padding:10px;border:1px solid #e0e0e0">30"</td><td style="padding:10px;border:1px solid #e0e0e0">39"</td><td style="padding:10px;border:1px solid #e0e0e0">32"</td></tr>
+                    <tr><td style="padding:10px;border:1px solid #e0e0e0">30</td><td style="padding:10px;border:1px solid #e0e0e0">31"</td><td style="padding:10px;border:1px solid #e0e0e0">40"</td><td style="padding:10px;border:1px solid #e0e0e0">32"</td></tr>
+                  </tbody>
+                </table>
+                <p style="margin-top:16px"><strong>Between sizes?</strong> Size up for a more relaxed fit, or size down for a closer fit.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-header" onclick="toggleFaq(this)" aria-expanded="false">
+                <span style="font-weight:700;font-size:16px;color:#1a1a1a;text-align:left">Shipping & Returns</span>
+                <svg class="faq-chevron" style="width:20px;height:20px;transition:transform 0.3s ease;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div class="faq-content" style="display:none;padding:20px 24px;color:#666;line-height:1.8;font-size:15px">
+                <p style="margin-bottom:12px"><strong>Fast & Tracked Shipping</strong></p>
+                <p style="margin-bottom:16px">All orders ship within 1-2 business days via tracked courier service. Standard delivery: 5-7 business days. Free shipping on orders over $75!</p>
+
+                <p style="margin-bottom:12px"><strong>30-Day Happiness Guarantee</strong></p>
+                <p>Return unworn items with tags attached within 30 days for a full refund. Email returns@southbeachjean.com for a prepaid return label. We cover shipping both ways for exchanges!</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-header" onclick="toggleFaq(this)" aria-expanded="false">
+                <span style="font-weight:700;font-size:16px;color:#1a1a1a;text-align:left">Care Instructions</span>
+                <svg class="faq-chevron" style="width:20px;height:20px;transition:transform 0.3s ease;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div class="faq-content" style="display:none;padding:20px 24px;color:#666;line-height:1.8;font-size:15px">
+                <ul style="list-style:none;padding:0;margin:0">
+                  <li style="padding:8px 0;border-bottom:1px solid #f0f0f0">Turn inside out before washing</li>
+                  <li style="padding:8px 0;border-bottom:1px solid #f0f0f0">Machine wash cold with similar colors</li>
+                  <li style="padding:8px 0;border-bottom:1px solid #f0f0f0">Hang dry or tumble dry on low</li>
+                  <li style="padding:8px 0">The cotton gets softer with every wash!</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -659,7 +761,6 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif}
       <h3>Legal</h3>
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
-      <a href="#" onclick="showCookieSettings(); return false;">Cookie Settings</a>
     </div>
     <div class="footer-section">
       <h3>Follow Us</h3>
@@ -671,19 +772,6 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif}
   </div>
 </footer>
 
-<!-- GDPR Cookie Consent Banner -->
-<div id="cookieBanner" class="cookie-banner">
-  <div class="cookie-content">
-    <div class="cookie-text">
-      <strong>We use cookies to improve your experience</strong><br>
-      This website uses essential cookies for functionality and analytics cookies (TikTok Pixel) to measure advertising effectiveness. By clicking "Accept", you consent to our use of cookies. <a href="privacy.html">Learn more in our Privacy Policy</a>
-    </div>
-    <div class="cookie-buttons">
-      <button class="cookie-btn decline" onclick="handleCookieConsent(false)">Decline</button>
-      <button class="cookie-btn accept" onclick="handleCookieConsent(true)">Accept All Cookies</button>
-    </div>
-  </div>
-</div>
 
 <script>
 // Performance Metrics
@@ -752,7 +840,7 @@ document.getElementById('orderBumpPopup')?.addEventListener('click', function(e)
 });
 
 // Product Images
-const productImages = ['product-01.png', 'product-02.png', 'product-03.png', 'product-04.png', 'product-05.png'];
+const productImages = ['product-01.avif', 'product-02.avif', 'product-03.avif', 'product-04.avif', 'product-05.avif'];
 
 function loadThumbnails() {
   const thumbsContainer = document.getElementById('thumbs');
@@ -885,7 +973,7 @@ function handleAddToCart(type) {
 
 function showOrderBumpPopup(type) {
   const basePrice = type === 'primary' ? 59 : 19;
-  const bumpPrice = 10;
+  const bumpPrice = 15;
   const total = basePrice + bumpPrice;
 
   document.getElementById('orderSummary').innerHTML = `
@@ -927,6 +1015,33 @@ function declineOrderBump() {
   processOrder(amount);
 }
 
+// FAQ Accordion Toggle
+function toggleFaq(button) {
+  const faqItem = button.closest('.faq-item');
+  const faqContent = faqItem.querySelector('.faq-content');
+  const isActive = faqItem.classList.contains('active');
+
+  // Close all other FAQ items
+  document.querySelectorAll('.faq-item').forEach(item => {
+    if (item !== faqItem) {
+      item.classList.remove('active');
+      item.querySelector('.faq-content').style.display = 'none';
+      item.querySelector('.faq-header').setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Toggle current FAQ item
+  if (isActive) {
+    faqItem.classList.remove('active');
+    faqContent.style.display = 'none';
+    button.setAttribute('aria-expanded', 'false');
+  } else {
+    faqItem.classList.add('active');
+    faqContent.style.display = 'block';
+    button.setAttribute('aria-expanded', 'true');
+  }
+}
+
 // Seamless Exit Transition for Payment Redirect
 function redirectWithTransition(url) {
   const overlay = document.getElementById('exitTransition');
@@ -959,26 +1074,31 @@ function redirectWithTransition(url) {
 
 // Testimonial Image Mapping - map img number to actual filename (URL-encoded)
 const testimonialImages = {
-  1: 'Gemini_Generated_Image_7kvmzu7kvmzu7kvm%20(1).png',
-  2: 'Gemini_Generated_Image_7kvmzu7kvmzu7kvm%20(2).png',
-  3: 'Gemini_Generated_Image_7kvmzu7kvmzu7kvm%20(3).png',
-  4: 'Gemini_Generated_Image_7kvmzu7kvmzu7kvm%20(4).png',
-  5: 'Gemini_Generated_Image_7kvmzu7kvmzu7kvm%20(5).png',
-  6: 'Gemini_Generated_Image_7kvmzu7kvmzu7kvm%20(6).png',
-  7: 'Gemini_Generated_Image_7kvmzu7kvmzu7kvm%20(7).png',
-  8: 'Gemini_Generated_Image_7kvmzu7kvmzu7kvm%20(8).png',
-  9: 'Gemini_Generated_Image_7kvmzu7kvmzu7kvm%20(9).png',
-  10: 'Gemini_Generated_Image_7kvmzu7kvmzu7kvm%20(10).png',
-  11: 'Gemini_Generated_Image_iij8huiij8huiij8%20(1).png',
-  12: 'Gemini_Generated_Image_iij8huiij8huiij8%20(2).png',
-  13: 'Gemini_Generated_Image_iij8huiij8huiij8%20(3).png',
-  14: 'Gemini_Generated_Image_iij8huiij8huiij8%20(4).png',
-  15: 'Gemini_Generated_Image_iij8huiij8huiij8%20(5).png',
-  16: 'Gemini_Generated_Image_iij8huiij8huiij8%20(6).png',
-  17: 'Gemini_Generated_Image_iij8huiij8huiij8%20(7).png',
-  18: 'Gemini_Generated_Image_iij8huiij8huiij8%20(8).png',
-  19: 'Gemini_Generated_Image_7kvmzu7kvmzu7kvm%20(1).png',
-  20: 'Gemini_Generated_Image_7kvmzu7kvmzu7kvm%20(2).png'
+  0: 'Gemini_Generated_Image_va19dvva19dvva19%20(1).png',
+  1: 'Gemini_Generated_Image_va19dvva19dvva19%20(2).png',
+  2: 'Gemini_Generated_Image_va19dvva19dvva19%20(3).png',
+  3: 'Gemini_Generated_Image_va19dvva19dvva19%20(4).png',
+  4: 'Gemini_Generated_Image_va19dvva19dvva19%20(5).png',
+  5: 'Gemini_Generated_Image_va19dvva19dvva19%20(6).png',
+  6: 'Gemini_Generated_Image_va19dvva19dvva19%20(7).png',
+  7: 'Gemini_Generated_Image_va19dvva19dvva19%20(8).png',
+  8: 'Gemini_Generated_Image_va19dvva19dvva19%20(9).png',
+  9: 'Gemini_Generated_Image_p5au0bp5au0bp5au%20(1).png',
+  10: 'Gemini_Generated_Image_p5au0bp5au0bp5au%20(2).png',
+  11: 'Gemini_Generated_Image_p5au0bp5au0bp5au%20(3).png',
+  12: 'Gemini_Generated_Image_p5au0bp5au0bp5au%20(4).png',
+  13: 'Gemini_Generated_Image_p5au0bp5au0bp5au%20(5).png',
+  14: 'Gemini_Generated_Image_p5au0bp5au0bp5au%20(6).png',
+  15: 'Gemini_Generated_Image_p5au0bp5au0bp5au%20(7).png',
+  16: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(1).png',
+  17: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(2).png',
+  18: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(3).png',
+  19: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(4).png',
+  20: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(5).png',
+  21: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(6).png',
+  22: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(7).png',
+  23: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(8).png',
+  24: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(9).png'
 };
 
 // SVG Platform Icons
@@ -1207,6 +1327,112 @@ function loadRemainingContent() {
   const lazyContent = document.getElementById('lazyContent');
 
   lazyContent.innerHTML = `
+    <!-- FAQ Section -->
+    <div class="fade-in" style="padding:60px 20px;background:#f9fafb">
+      <div style="max-width:900px;margin:0 auto">
+        <h2 style="text-align:center;font-size:36px;font-weight:800;margin-bottom:12px;color:#1a1a1a">Frequently Asked Questions</h2>
+        <p style="text-align:center;color:#666;font-size:17px;margin-bottom:50px">Everything you need to know about the South Beach Jean</p>
+
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <button class="faq-header" onclick="toggleFaq(this)" aria-expanded="false">
+              <span style="font-weight:700;font-size:18px;color:#1a1a1a;text-align:left">What size should I order?</span>
+              <svg class="faq-chevron" style="width:24px;height:24px;transition:transform 0.3s ease;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-content" style="display:none;padding:20px 24px;color:#666;line-height:1.8;font-size:16px">
+              <p>These jeans run true to size! We recommend ordering your usual jean size. If you're between sizes, size up for a more relaxed fit or down for a snugger fit. Check our size guide for detailed measurements.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-header" onclick="toggleFaq(this)" aria-expanded="false">
+              <span style="font-weight:700;font-size:18px;color:#1a1a1a;text-align:left">How long does shipping take?</span>
+              <svg class="faq-chevron" style="width:24px;height:24px;transition:transform 0.3s ease;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-content" style="display:none;padding:20px 24px;color:#666;line-height:1.8;font-size:16px">
+              <p>We offer fast, tracked shipping! Orders typically arrive within 5-7 business days. You'll receive a tracking number as soon as your jeans ship.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-header" onclick="toggleFaq(this)" aria-expanded="false">
+              <span style="font-weight:700;font-size:18px;color:#1a1a1a;text-align:left">What's your return policy?</span>
+              <svg class="faq-chevron" style="width:24px;height:24px;transition:transform 0.3s ease;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-content" style="display:none;padding:20px 24px;color:#666;line-height:1.8;font-size:16px">
+              <p>We want you to love your jeans! If they're not perfect, you have 30 days to return them for a full refund. Items must be unworn with tags attached. Return shipping is free and easy.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-header" onclick="toggleFaq(this)" aria-expanded="false">
+              <span style="font-weight:700;font-size:18px;color:#1a1a1a;text-align:left">How do I care for these jeans?</span>
+              <svg class="faq-chevron" style="width:24px;height:24px;transition:transform 0.3s ease;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-content" style="display:none;padding:20px 24px;color:#666;line-height:1.8;font-size:16px">
+              <p>To keep the vintage wash looking fresh, wash inside out in cold water and hang dry or tumble dry on low. The 100% cotton construction gets softer with every wash while maintaining its shape beautifully.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-header" onclick="toggleFaq(this)" aria-expanded="false">
+              <span style="font-weight:700;font-size:18px;color:#1a1a1a;text-align:left">What makes these different from other jeans?</span>
+              <svg class="faq-chevron" style="width:24px;height:24px;transition:transform 0.3s ease;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-content" style="display:none;padding:20px 24px;color:#666;line-height:1.8;font-size:16px">
+              <p>The South Beach Jean combines authentic Y2K styling with premium quality. Made from 100% cotton (not cheap stretch blends), they feature a hand-sanded vintage finish and thoughtful design details like sculpted pockets. The low-rise and subtle flare create a perfectly balanced, flattering silhouette.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-header" onclick="toggleFaq(this)" aria-expanded="false">
+              <span style="font-weight:700;font-size:18px;color:#1a1a1a;text-align:left">Are these jeans comfortable for all-day wear?</span>
+              <svg class="faq-chevron" style="width:24px;height:24px;transition:transform 0.3s ease;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-content" style="display:none;padding:20px 24px;color:#666;line-height:1.8;font-size:16px">
+              <p>Absolutely! The 100% cotton fabric is breathable and moves with you. The relaxed fit through the thigh prevents any pinching or restriction, while the low-rise sits comfortably at your natural waist. Perfect for everything from brunch to dancing all night.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-header" onclick="toggleFaq(this)" aria-expanded="false">
+              <span style="font-weight:700;font-size:18px;color:#1a1a1a;text-align:left">What occasions can I wear these for?</span>
+              <svg class="faq-chevron" style="width:24px;height:24px;transition:transform 0.3s ease;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-content" style="display:none;padding:20px 24px;color:#666;line-height:1.8;font-size:16px">
+              <p>These jeans are incredibly versatile! Dress them up with heels and a crop top for date night, keep it casual with sneakers and a tee for everyday, or style them with boots and a blazer for going out. They're the definition of 'goes with everything.'</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-header" onclick="toggleFaq(this)" aria-expanded="false">
+              <span style="font-weight:700;font-size:18px;color:#1a1a1a;text-align:left">Will the color fade after washing?</span>
+              <svg class="faq-chevron" style="width:24px;height:24px;transition:transform 0.3s ease;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-content" style="display:none;padding:20px 24px;color:#666;line-height:1.8;font-size:16px">
+              <p>The vintage medium wash is designed to maintain its character over time. While minor fading is natural with 100% cotton denim (and adds to the vintage vibe!), washing inside out in cold water will preserve the color beautifully for years.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Featured Review Carousel Section -->
     <div class="fade-in" style="padding:60px 20px;background:#fff;border-bottom:2px solid #f0f0f0">
       <div style="max-width:1200px;margin:0 auto">
@@ -1394,40 +1620,8 @@ window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').catch(() => {});
   }
 
-  // Show cookie banner if consent not given
-  checkCookieConsent();
 });
 
-// GDPR Cookie Consent Functions
-function checkCookieConsent() {
-  const consent = localStorage.getItem('cookieConsent');
-  if (!consent) {
-    // Show banner after a brief delay for better UX
-    setTimeout(() => {
-      document.getElementById('cookieBanner').classList.add('show');
-    }, 1000);
-  } else if (consent === 'accepted') {
-    // User previously accepted - analytics already loaded via TikTok Pixel in head
-    console.log('Cookie consent: accepted');
-  } else {
-    // User declined - could disable non-essential cookies here if needed
-    console.log('Cookie consent: declined');
-  }
-}
-
-function handleCookieConsent(accepted) {
-  const banner = document.getElementById('cookieBanner');
-  banner.classList.remove('show');
-
-  if (accepted) {
-    localStorage.setItem('cookieConsent', 'accepted');
-    // TikTok Pixel already loaded in head, no action needed
-  } else {
-    localStorage.setItem('cookieConsent', 'declined');
-    // Note: TikTok Pixel already loaded. In production, you'd conditionally load it
-    // or disable tracking here. For now, we just record the preference.
-  }
-}
 
 // Featured Review Carousel - 5 Premium Reviews
 // Featured Review Carousel - AUTO-GENERATED by Agent 4 (5 premium reviews, product-specific)
@@ -1575,13 +1769,6 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initCarousel);
 } else {
   initCarousel();
-}
-
-
-function showCookieSettings() {
-  // Reset consent and show banner again
-  localStorage.removeItem('cookieConsent');
-  document.getElementById('cookieBanner').classList.add('show');
 }
 </script>
 
