@@ -9,3 +9,11 @@ product-content.json
 
 # Local Netlify folder
 .netlify
+
+# Image optimization artifacts
+images/*-optimized/
+images/*-original/
+optimize-*.js
+check-product-dims.js
+fix-product-03.js
+resize-product-03.js
