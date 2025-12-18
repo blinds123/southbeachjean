@@ -17,3 +17,4 @@ optimize-*.js
 check-product-dims.js
 fix-product-03.js
 resize-product-03.js
+generate-favicons.js

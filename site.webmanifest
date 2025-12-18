@@ -1,0 +1,17 @@
+{
+  "name": "South Beach Jean - Y2K Flare Jeans",
+  "short_name": "SB Jean",
+  "description": "Premium Y2K denim with modern comfort",
+  "icons": [
+    {
+      "src": "./android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#5B7C99",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}
