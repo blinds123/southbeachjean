@@ -1,0 +1,8 @@
+node_modules
+.DS_Store
+.env
+*.bak
+.repo_name_temp
+build-landing-page.sh
+testimonials.json
+product-content.json
