@@ -1678,16 +1678,21 @@ if (craftsmanshipSection) {
   craftsmanshipObserver.observe(craftsmanshipSection);
 }
 
-// Animation 4: Stone-Washed Ripple Effect
+// Animation 4: Stone-Washed Ripple Effect (Mobile + Desktop)
 const mainImg = document.querySelector('.main-img');
 if (mainImg) {
-  mainImg.addEventListener('click', (e) => {
+  function createRipple(e) {
     const ripple = document.createElement('div');
     ripple.className = 'stone-wash-ripple';
 
     const rect = e.target.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+
+    // Handle both touch and mouse events
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
 
     ripple.style.left = x + 'px';
     ripple.style.top = y + 'px';
@@ -1695,7 +1700,16 @@ if (mainImg) {
     e.target.parentElement.appendChild(ripple);
 
     setTimeout(() => ripple.remove(), 1000);
-  });
+  }
+
+  // Desktop: click event
+  mainImg.addEventListener('click', createRipple);
+
+  // Mobile: touch event (prevent default to avoid double-trigger)
+  mainImg.addEventListener('touchstart', (e) => {
+    createRipple(e);
+    e.preventDefault(); // Prevents click event from also firing
+  }, { passive: false });
 }
 
 // Animation 7: Y2K Terminal Text Reveal
