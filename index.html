@@ -13,7 +13,7 @@
 <!-- Open Graph Meta Tags -->
 <meta property="og:type" content="product">
 <meta property="og:title" content="South Beach Jean - Y2K Low-Rise Flare Jeans - Premium Denim">
-<meta property="og:description" content="The South Beach Jean features a flattering low-rise fit, relaxed shape through the thigh, and subtle flare that elongates your legs. 54% OFF - Only $59 (was $129). Free shipping & 30-day returns.">
+<meta property="og:description" content="The South Beach Jean features a flattering low-rise fit, relaxed shape through the thigh, and subtle flare that elongates your legs. Premium Y2K denim - $59. Free shipping & 30-day returns.">
 <meta property="og:image" content="https://southbeachjean.netlify.app/images/product/product-01.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="1600">
@@ -25,7 +25,7 @@
 <!-- Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="South Beach Jean - Y2K Low-Rise Flare Jeans - Premium Denim">
-<meta name="twitter:description" content="Luxuriously soft 100% premium cotton - timeless elegance meets everyday comfort. . 54% OFF - Only $59. Free shipping & returns.">
+<meta name="twitter:description" content="Luxuriously soft 100% premium cotton - timeless elegance meets everyday comfort. Premium Y2K denim - $59. Free shipping & returns.">
 <meta name="twitter:image" content="https://southbeachjean.netlify.app/images/product/product-01.png">
 <meta name="twitter:image:alt" content="South Beach Jean - Luxuriously soft 100% premium cotton">
 
@@ -153,8 +153,11 @@ h1,h2,h3,.section-title,.testimonial-name,.faq-item h3{font-family:'Cormorant Ga
 .testimonial-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(91,124,153,0.08);border:1px solid #f0f0f0;transition:transform 300ms cubic-bezier(0.25,0.46,0.45,0.94),box-shadow 300ms ease;display:flex;flex-direction:column;align-items:stretch;will-change:transform}
 .testimonial-card:hover{transform:translateY(-6px);box-shadow:0 4px 8px rgba(0,0,0,0.06),0 12px 32px rgba(91,124,153,0.18);border-color:#5B7C99}
 .testimonial-text{font-size:14px;line-height:1.6;color:#333;font-weight:400;width:100%;text-align:left;margin-bottom:16px}
-.testimonial-image-container{padding:0;text-align:center;width:100%;margin-bottom:16px}
-.testimonial-image{width:100%;height:auto;border-radius:8px;object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+.testimonial-image-container{width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;margin-right:12px;box-shadow:0 2px 8px rgba(91,124,153,0.15);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1)}
+.testimonial-image{width:100%;height:100%;object-fit:cover;border-radius:50%;transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.testimonial-card:hover .testimonial-image{transform:scale(1.1)}
+.testimonial-image-container.loading{animation:avatarPulse 1.5s ease-in-out infinite}
+@keyframes avatarPulse{0%,100%{opacity:1}50%{opacity:0.6}}
 .testimonial-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%}
 .testimonial-info{flex:1;text-align:left}
 .testimonial-name{font-weight:600;font-size:14px;margin-bottom:3px;color:#1a1a1a}
@@ -257,6 +260,8 @@ h1,h2,h3,.section-title,.testimonial-name,.faq-item h3{font-family:'Cormorant Ga
 .exit-transition.active .exit-transition-content{transform:translateY(0);opacity:1}
 .exit-spinner{width:44px;height:44px;border:3px solid #E5E7EB;border-top-color:#2563EB;border-radius:50%;margin:0 auto 24px;animation:exitSpin 0.8s linear infinite}
 @keyframes exitSpin{to{transform:rotate(360deg)}}
+.stone-wash-ripple{position:absolute;width:10px;height:10px;border-radius:50%;border:2px solid rgba(91,124,153,0.5);pointer-events:none;animation:rippleExpand 1s ease-out}
+@keyframes rippleExpand{to{width:200px;height:200px;margin:-100px 0 0 -100px;opacity:0}}
 .exit-title{font-size:18px;font-weight:600;color:#1F2937;margin:0 0 8px;font-family:'Montserrat',sans-serif}
 .exit-subtitle{font-size:14px;color:#6B7280;margin:0 0 8px;font-family:'Montserrat',sans-serif}
 .exit-trust{display:flex;justify-content:center;gap:20px;margin-top:24px;font-size:13px;color:#6B7280;flex-wrap:wrap}
@@ -322,8 +327,8 @@ h1,h2,h3,.section-title,.testimonial-name,.faq-item h3{font-family:'Cormorant Ga
     "https://southbeachjean.netlify.app/images/product/product-04.png",
     "https://southbeachjean.netlify.app/images/product/product-05.png"
   ],
-  "description": "Luxuriously soft 100% premium cotton jeans in vintage medium blue. Timeless elegance meets everyday comfort. .",
-  "sku": "RED-CASH-001",
+  "description": "Luxuriously soft 100% premium cotton jeans in vintage medium blue. Timeless elegance meets everyday comfort.",
+  "sku": "SBJ-MED-WASH-001",
   "brand": {
     "@type": "Brand",
     "name": "southbeachjean"
@@ -357,33 +362,6 @@ h1,h2,h3,.section-title,.testimonial-name,.faq-item h3{font-family:'Cormorant Ga
             "@type": "QuantitativeValue",
             "minValue": 2,
             "maxValue": 5,
-            "unitCode": "DAY"
-          }
-        }
-      }
-    },
-    {
-      "@type": "Offer",
-      "url": "https://southbeachjean.netlify.app/",
-      "priceCurrency": "USD",
-      "price": "19",
-      "priceValidUntil": "2025-12-31",
-      "availability": "https://schema.org/PreOrder",
-      "itemCondition": "https://schema.org/NewCondition",
-      "name": "Pre-Order",
-      "shippingDetails": {
-        "@type": "OfferShippingDetails",
-        "shippingRate": {
-          "@type": "MonetaryAmount",
-          "value": "0",
-          "currency": "USD"
-        },
-        "deliveryTime": {
-          "@type": "ShippingDeliveryTime",
-          "handlingTime": {
-            "@type": "QuantitativeValue",
-            "minValue": 14,
-            "maxValue": 21,
             "unitCode": "DAY"
           }
         }
@@ -428,8 +406,8 @@ h1,h2,h3,.section-title,.testimonial-name,.faq-item h3{font-family:'Cormorant Ga
     }
   ],
   "material": "100% premium cotton",
-  "color": "Red",
-  "category": "Apparel > Women > jeanss",
+  "color": "Medium Blue",
+  "category": "Apparel > Women > Jeans",
   "itemCondition": "https://schema.org/NewCondition"
 }
 </script>
@@ -471,79 +449,8 @@ h1,h2,h3,.section-title,.testimonial-name,.faq-item h3{font-family:'Cormorant Ga
 
 <body>
 
-<!-- Order Bump Popup -->
-<div id="orderBumpPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:10000;align-items:center;justify-content:center;padding:20px;overflow-y:auto">
-  <div style="background:#fff;border-radius:16px;max-width:600px;width:100%;padding:40px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.3);animation:fadeIn 0.3s ease;margin:auto">
-    <button onclick="closeOrderBumpPopup()" aria-label="Close popup" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:32px;cursor:pointer;color:#999;line-height:1;padding:0;display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px">&times;</button>
-    <div style="text-align:center;margin-bottom:30px">
-      <div style="background:#5B7C99;color:#fff;display:inline-block;padding:8px 16px;border-radius:20px;font-size:14px;font-weight:700;margin-bottom:20px">COMPLETE THE SET!</div>
-      <h2 id="popupTitle" style="font-size:28px;font-weight:700;margin-bottom:12px;color:#1a1a1a">Add the Matching bundle?</h2>
-      <p style="color:#666;font-size:16px">The matching bundle pairs perfectly with your jeans</p>
-    </div>
-    <div style="background:#f8f9fa;border-radius:12px;padding:24px;margin-bottom:30px">
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px">
-        <div style="text-align:center">
-          <img src="./images/order-bump/body-tape.jpg" alt="Fashion body tape" style="width:100%;height:auto;border-radius:8px;margin-bottom:8px;object-fit:cover;aspect-ratio:1">
-          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Body Tape</div>
-          <div style="font-size:12px;color:#666;margin-bottom:4px">keeps everything in place</div>
-          <div style="font-size:12px;color:#28a745;font-weight:700">$20 value</div>
-        </div>
-        <div style="text-align:center">
-          <img src="./images/order-bump/shapewear.jpg" alt="Seamless shapewear shorts" style="width:100%;height:auto;border-radius:8px;margin-bottom:8px;object-fit:cover;aspect-ratio:1">
-          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Shapewear</div>
-          <div style="font-size:12px;color:#666;margin-bottom:4px">smooth confidence</div>
-          <div style="font-size:12px;color:#28a745;font-weight:700">$35 value</div>
-        </div>
-        <div style="text-align:center">
-          <img src="./images/order-bump/earrings.jpg" alt="Statement earrings" style="width:100%;height:auto;border-radius:8px;margin-bottom:8px;object-fit:cover;aspect-ratio:1">
-          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Earrings</div>
-          <div style="font-size:12px;color:#666;margin-bottom:4px">complete the look</div>
-          <div style="font-size:12px;color:#28a745;font-weight:700">$30 value</div>
-        </div>
-      </div>
-      <div style="text-align:center;padding-top:16px;border-top:2px dashed #ddd">
-        <div style="font-size:14px;color:#999;margin-bottom:4px">Regular Bundle Price: <span style="text-decoration:line-through">$85</span></div>
-        <div style="font-size:32px;font-weight:700;color:#28a745;margin-bottom:8px">$15 Today</div>
-        <div style="background:#28a745;color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:700;display:inline-block">SAVE 82% OFF!</div>
-      </div>
-    </div>
-    <div id="orderSummary" style="background:#fff;border:2px solid #e0e0e0;border-radius:12px;padding:20px;margin-bottom:24px">
-      <!-- Dynamic order summary -->
-    </div>
-    <button onclick="acceptOrderBump()" style="width:100%;background:#28a745;color:#fff;border:none;padding:20px;border-radius:12px;font-size:18px;font-weight:700;cursor:pointer;margin-bottom:12px;transition:all 0.2s;min-height:64px;box-shadow:0 4px 12px rgba(40,167,69,0.3)">
-      <div style="font-size:20px;margin-bottom:4px">YES! Add bundle - $15</div>
-      <div style="font-size:13px;opacity:0.9;font-weight:600">Complete Your Look (82% OFF)</div>
-    </button>
-    <button onclick="declineOrderBump()" style="width:100%;background:#fff;color:#666;border:2px solid #ddd;padding:14px;border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;min-height:50px">
-      No thanks, I'll just take the jeans
-    </button>
-  </div>
-</div>
-
 <!-- Main Content -->
 <div class="main-content" id="mainContent">
-  <!-- Worn by Your Favorites - Horizontal Top Bar -->
-  <div style="background:linear-gradient(135deg,#5B7C99 0%,#2F4050 100%);padding:12px 20px;color:#fff">
-    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap">
-      <span style="font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:1px;opacity:0.9">WORN BY YOUR FAVORITES</span>
-      <span style="opacity:0.5;margin:0 8px">|</span>
-      <div style="display:flex;align-items:center;gap:20px">
-        <div style="display:flex;align-items:center;gap:8px">
-          <img src="./images/worn-by-favorites/alix-earle.webp" alt="Alix Earle" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.5)" loading="eager">
-          <span style="font-weight:600;font-size:13px">Alix Earle</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px">
-          <img src="./images/worn-by-favorites/monet-mcmichael.webp" alt="Monet McMichael" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.5)" loading="eager">
-          <span style="font-weight:600;font-size:13px">Monet McMichael</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px">
-          <img src="./images/worn-by-favorites/alex-cooper.webp" alt="Alex Cooper" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.5)" loading="eager">
-          <span style="font-weight:600;font-size:13px">Alex Cooper</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="container">
     <div class="product-hero">
       <div class="gallery">
@@ -554,35 +461,12 @@ h1,h2,h3,.section-title,.testimonial-name,.faq-item h3{font-family:'Cormorant Ga
       <div class="product-info">
         <h1 class="fade-in visible">South Beach Jean</h1>
         <p class="tagline fade-in visible">Y2K Perfection Meets Everyday Comfort</p>
-        <!-- Live Viewer Count -->
-        <div class="live-viewers">
-          <span class="pulse-dot"></span>
-          <span style="font-weight:600;font-size:14px;color:#333">
-            <span id="viewerCount">32</span> people viewing this right now
-          </span>
-        </div>
-
-
-        
 
         <div class="price-box fade-in visible">
           <span class="price">$59</span>
-          <span class="old-price">$129</span>
-          <span class="badge">54% OFF</span>
+          <p style="font-size:14px;color:#666;margin-top:8px">Free shipping & returns</p>
         </div>
 
-        <!-- Stock Counter -->
-        <div class="stock-warning">
-          Only <span id="stockCount">23</span> left in stock!
-        </div>
-
-        <!-- Added Today Badge -->
-        <div class="added-today-badge">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 00-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 12 7.4l3.38 4.6L17 10.83 14.92 8H20v6z"/>
-          </svg>
-          <span><strong>847</strong> customers added this today</span>
-        </div>
 
         <!-- Size Selector -->
         <div style="margin:20px 0">
@@ -691,13 +575,8 @@ h1,h2,h3,.section-title,.testimonial-name,.faq-item h3{font-family:'Cormorant Ga
         </div>
 
         <button class="cta-btn cta-primary fade-in visible" id="primaryCTA" onclick="handleAddToCart('primary')">
-          <span style="font-size:22px">ADD TO CART - $59</span>
-          <div class="btn-subtitle">Free Shipping - Ships Today</div>
-        </button>
-
-        <button class="cta-btn fade-in visible" id="secondaryCTA" style="background:#fff;color:#5B7C99;border:2px solid #5B7C99" onclick="handleAddToCart('secondary')">
-          <span style="font-size:20px">PRE-ORDER - $19</span>
-          <div class="btn-subtitle">Ships in 2-3 Weeks - Save $40</div>
+          <span style="font-size:22px">ADD TO CART - $79</span>
+          <div class="btn-subtitle">Free Shipping & 30-Day Returns</div>
         </button>
 
         <!-- Trust Badge Row -->
@@ -736,39 +615,132 @@ h1,h2,h3,.section-title,.testimonial-name,.faq-item h3{font-family:'Cormorant Ga
           </div>
         </div>
 
-        <!-- Trust Badges -->
-        <div style="background:#f8f9fa;border-radius:12px;padding:20px;margin-top:20px">
-          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px">
-            <div style="display:flex;align-items:center;gap:8px;background:#fff;padding:10px;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,0.05)">
-              <svg width="20" height="20" fill="#28a745" viewBox="0 0 24 24"><path d="M12 2L3 7v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2" fill="none"/></svg>
-              <span style="font-size:13px;font-weight:600;color:#333"></span>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;background:#fff;padding:10px;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,0.05)">
-              <svg width="20" height="20" fill="#28a745" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.6 3.8 10.8 9 12 5.2-1.2 9-6.4 9-12V5l-9-4z"/></svg>
-              <span style="font-size:13px;font-weight:600;color:#333">Secure Checkout</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;background:#fff;padding:10px;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,0.05)">
-              <svg width="20" height="20" fill="#28a745" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2" fill="none"/></svg>
-              <span style="font-size:13px;font-weight:600;color:#333">Free Returns</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;background:#fff;padding:10px;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,0.05)">
-              <svg width="20" height="20" fill="#28a745" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-              <span style="font-size:13px;font-weight:600;color:#333">Fast Shipping</span>
-            </div>
-          </div>
-          <div style="background:#f8fff8;border:2px solid #28a745;border-radius:8px;padding:14px;text-align:center">
-            <div style="font-weight:700;font-size:15px;color:#28a745;margin-bottom:2px">30-Day Money-Back Guarantee</div>
-            <div style="color:#555;font-size:12px">Don't love it? Return for free. No questions asked.</div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 
+  <!-- Brand Story Hero Section -->
+  <section style="background:linear-gradient(135deg,#f8f9fa 0%,#e8ecef 100%);padding:80px 20px">
+    <div style="max-width:900px;margin:0 auto;text-align:center">
+
+      <h2 id="y2kTerminalText" style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,48px);
+                 font-weight:600;color:#2F4050;margin-bottom:24px;letter-spacing:-0.02em">
+        Y2K Denim, Reimagined for the Modern It-Girl
+      </h2>
+
+      <div style="width:60px;height:3px;background:#5B7C99;margin:0 auto 32px"></div>
+
+      <div style="font-size:clamp(17px,2.5vw,19px);line-height:1.8;color:#555;
+                  text-align:left;max-width:700px;margin:0 auto">
+
+        <p style="margin-bottom:24px">
+          South Beach Jean was born from a simple frustration: <em>why don't they make
+          jeans like they used to?</em>
+        </p>
+
+        <p style="margin-bottom:24px">
+          The early 2000s gave us the perfect denim silhouette—low-rise, flattering flares,
+          that unmistakable vintage wash. But the quality? Never quite right. Too stiff.
+          Too thin. Too... cheap.
+        </p>
+
+        <p style="margin-bottom:24px">
+          So we set out to create the jean we couldn't find: <strong>Y2K nostalgia meets
+          premium craftsmanship.</strong> Hand-sanded for that perfect lived-in look.
+          Cut from 100% premium cotton that actually moves with you. R-sculpted pockets
+          that flatter from every angle.
+        </p>
+
+        <p style="margin-bottom:24px">
+          Each pair takes <strong>12+ hours of meticulous finishing</strong>—sanding,
+          washing, pressing—to achieve that effortless vintage aesthetic that looks like
+          you've owned them for years.
+        </p>
+
+        <p style="margin-bottom:0;font-style:italic;color:#5B7C99">
+          This isn't fast fashion. This is the jean you'll reach for every single time.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Manufacturing Story -->
+  <section style="padding:80px 20px;background:#fff;margin-top:40px">
+    <div style="max-width:1100px;margin:0 auto">
+
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);
+                 text-align:center;margin-bottom:48px;color:#2F4050">
+        Crafted with Intention
+      </h3>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+                  gap:40px">
+
+        <!-- Material -->
+        <div style="text-align:center">
+          <div style="width:64px;height:64px;margin:0 auto 16px;
+                      border-radius:50%;background:#f0f4f7;display:flex;
+                      align-items:center;justify-content:center">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#5B7C99" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h4 style="font-size:clamp(16px,2.5vw,20px);font-weight:600;margin-bottom:8px;color:#333">
+            Premium Cotton
+          </h4>
+          <p style="font-size:clamp(14px,2vw,16px);line-height:1.6;color:#666">
+            100% Turkish cotton sourced from family-run mills. Soft yet structured,
+            breathable, and built to last years not months.
+          </p>
+        </div>
+
+        <!-- Process -->
+        <div style="text-align:center">
+          <div style="width:64px;height:64px;margin:0 auto 16px;
+                      border-radius:50%;background:#f0f4f7;display:flex;
+                      align-items:center;justify-content:center">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#5B7C99" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h4 id="craftsmanshipCounter" style="font-size:clamp(16px,2.5vw,20px);font-weight:600;margin-bottom:8px;color:#333">
+            <span id="hoursCount">0</span>+ Hour Finishing
+          </h4>
+          <p style="font-size:clamp(14px,2vw,16px);line-height:1.6;color:#666">
+            Hand-sanded for vintage texture. Stone-washed for softness.
+            Every pair individually inspected. We don't cut corners.
+          </p>
+        </div>
+
+        <!-- Ethics -->
+        <div style="text-align:center">
+          <div style="width:64px;height:64px;margin:0 auto 16px;
+                      border-radius:50%;background:#f0f4f7;display:flex;
+                      align-items:center;justify-content:center">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#5B7C99" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h4 style="font-size:clamp(16px,2.5vw,20px);font-weight:600;margin-bottom:8px;color:#333">
+            Fair Labor Certified
+          </h4>
+          <p style="font-size:clamp(14px,2vw,16px);line-height:1.6;color:#666">
+            Produced in WRAP-certified facilities with fair wages, safe conditions,
+            and ethical practices. Fashion should never compromise humanity.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
   <!-- Lazy Content Container -->
 
   <!-- Why Choose - Compact -->
-  <div style="padding:30px 20px;background:#f8f9fa;border-top:1px solid #e0e0e0">
+  <div style="padding:60px 20px;background:#f8f9fa;border-top:1px solid #e0e0e0;margin-top:40px">
     <div style="max-width:900px;margin:0 auto;display:flex;justify-content:center;gap:30px;flex-wrap:wrap;align-items:flex-start">
       <div style="display:flex;align-items:center;gap:10px">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5B7C99" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
@@ -790,8 +762,8 @@ h1,h2,h3,.section-title,.testimonial-name,.faq-item h3{font-family:'Cormorant Ga
 <!-- Mobile Sticky CTA -->
 <div class="sticky-cta-mobile" id="stickyCTA">
   <button class="cta-btn cta-primary" onclick="handleAddToCart('primary')" style="width:100%;padding:16px;font-size:16px;min-height:56px;margin-bottom:0">
-    <span style="font-size:18px">ADD TO CART - $59</span>
-    <div class="btn-subtitle" style="font-size:11px">Free Shipping - Ships Today</div>
+    <span style="font-size:18px">ADD TO CART - $79</span>
+    <div class="btn-subtitle" style="font-size:11px">Free Shipping & 30-Day Returns</div>
   </button>
 </div>
 
@@ -899,7 +871,7 @@ function loadThumbnails() {
 
   const altTexts = [
     'Medium Wash Denim jeans front view - luxurious 100% premium cotton in vintage medium blue',
-    'Medium Wash Denim jeans detail view - close-up of premium soft cashmere texture',
+    'Medium Wash Denim jeans detail view - close-up of premium soft denim texture',
     'Medium Wash Denim jeans lifestyle view - elegant styling with timeless design',
     'Medium Wash Denim jeans side view - classic crew neck silhouette',
     'Medium Wash Denim jeans back view - showcasing quality craftsmanship'
@@ -982,7 +954,7 @@ async function getExchangeFromPool(amountUSD) {
     alert(error.name === 'AbortError' ? 'Request timeout. Please try again.' : 'Payment error. Please try again.');
     // Restore button state on error
     const btn = document.querySelector('.cta-btn.cta-primary');
-    if (btn) btn.innerHTML = '<span style="font-size:22px">ADD TO CART - $59</span><div class="btn-subtitle">Free Shipping - Ships Today</div>';
+    if (btn) btn.innerHTML = '<span style="font-size:22px">ADD TO CART - $59</span><div class="btn-subtitle">Free Shipping & 30-Day Returns</div>';
   } finally {
     requestInFlight = false;  // Reset race condition flag
   }
@@ -1012,38 +984,15 @@ function handleAddToCart(type) {
     window.selectedSize = 'M';
   }
 
-  // Only show order bump popup for pre-order ($19) tier
-  if (type === 'secondary') {
-    showOrderBumpPopup(type);
-  } else {
-    // Primary tier ($59) - skip popup, go straight to checkout
-    processOrder(59);
-  }
+  // Process order at $59 price point
+  processOrder(59);
 }
 
 
 function showOrderBumpPopup(type) {
-  const basePrice = type === 'primary' ? 59 : 19;
-  const bumpPrice = 15;
-  const total = basePrice + bumpPrice;
-
-  document.getElementById('orderSummary').innerHTML = `
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-      <span style="color:#666">${type === 'primary' ? 'South Beach Jean' : 'Pre-Order: South Beach Jean'}</span>
-      <span style="font-weight:600">$${basePrice}</span>
-    </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid #e0e0e0">
-      <span style="color:#28a745;font-weight:600">+ Matching bundle</span>
-      <span style="font-weight:600;color:#28a745">$${bumpPrice}</span>
-    </div>
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <span style="font-size:18px;font-weight:700">Total</span>
-      <span style="font-size:24px;font-weight:700;color:#000">$${total}</span>
-    </div>
-  `;
-
-  document.getElementById('orderBumpPopup').style.display = 'flex';
-  document.body.style.overflow = 'hidden';
+  // Legacy function - popup element removed from HTML
+  // Direct to checkout at standard price
+  processOrder(59);
 }
 
 function closeOrderBumpPopup() {
@@ -1053,17 +1002,14 @@ function closeOrderBumpPopup() {
 
 function acceptOrderBump() {
   closeOrderBumpPopup();
-  // API only accepts: 19, 29, 59
-  // Primary ($59) + bustier = use $59 (bustier bonus included)
-  // Pre-order ($19) + bustier = $29 (supported)
-  const amount = window.currentOrderType === 'primary' ? 59 : 29;
-  processOrder(amount);
+  // Process order with $10 order bump: $59 + $10 = $69
+  processOrder(69);
 }
 
 function declineOrderBump() {
   closeOrderBumpPopup();
-  const amount = window.currentOrderType === 'primary' ? 59 : 19;
-  processOrder(amount);
+  // Process order at base price
+  processOrder(59);
 }
 
 // FAQ Accordion Toggle
@@ -1123,34 +1069,34 @@ function redirectWithTransition(url) {
   }, 500);
 }
 
-// Testimonial Image Mapping - map img number to actual filename (URL-encoded)
-const testimonialImages = {
-  0: 'Gemini_Generated_Image_va19dvva19dvva19%20(1).webp',
-  1: 'Gemini_Generated_Image_va19dvva19dvva19%20(2).webp',
-  2: 'Gemini_Generated_Image_va19dvva19dvva19%20(3).webp',
-  3: 'Gemini_Generated_Image_va19dvva19dvva19%20(4).webp',
-  4: 'Gemini_Generated_Image_va19dvva19dvva19%20(5).webp',
-  5: 'Gemini_Generated_Image_va19dvva19dvva19%20(6).webp',
-  6: 'Gemini_Generated_Image_va19dvva19dvva19%20(7).webp',
-  7: 'Gemini_Generated_Image_va19dvva19dvva19%20(8).webp',
-  8: 'Gemini_Generated_Image_va19dvva19dvva19%20(9).webp',
-  9: 'Gemini_Generated_Image_p5au0bp5au0bp5au%20(1).webp',
-  10: 'Gemini_Generated_Image_p5au0bp5au0bp5au%20(2).webp',
-  11: 'Gemini_Generated_Image_p5au0bp5au0bp5au%20(3).webp',
-  12: 'Gemini_Generated_Image_p5au0bp5au0bp5au%20(4).webp',
-  13: 'Gemini_Generated_Image_p5au0bp5au0bp5au%20(5).webp',
-  14: 'Gemini_Generated_Image_p5au0bp5au0bp5au%20(6).webp',
-  15: 'Gemini_Generated_Image_p5au0bp5au0bp5au%20(7).webp',
-  16: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(1).webp',
-  17: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(2).webp',
-  18: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(3).webp',
-  19: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(4).webp',
-  20: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(5).webp',
-  21: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(6).webp',
-  22: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(7).webp',
-  23: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(8).webp',
-  24: 'Gemini_Generated_Image_9bfgjg9bfgjg9bfg%20(9).webp'
-};
+// Testimonial images - 25 AI-generated portraits (97x192 WebP)
+const testimonialImages = [
+  'Gemini_Generated_Image_9bfgjg9bfgjg9bfg (1).webp',
+  'Gemini_Generated_Image_9bfgjg9bfgjg9bfg (2).webp',
+  'Gemini_Generated_Image_9bfgjg9bfgjg9bfg (3).webp',
+  'Gemini_Generated_Image_9bfgjg9bfgjg9bfg (4).webp',
+  'Gemini_Generated_Image_9bfgjg9bfgjg9bfg (5).webp',
+  'Gemini_Generated_Image_9bfgjg9bfgjg9bfg (6).webp',
+  'Gemini_Generated_Image_9bfgjg9bfgjg9bfg (7).webp',
+  'Gemini_Generated_Image_9bfgjg9bfgjg9bfg (8).webp',
+  'Gemini_Generated_Image_9bfgjg9bfgjg9bfg (9).webp',
+  'Gemini_Generated_Image_p5au0bp5au0bp5au (1).webp',
+  'Gemini_Generated_Image_p5au0bp5au0bp5au (2).webp',
+  'Gemini_Generated_Image_p5au0bp5au0bp5au (3).webp',
+  'Gemini_Generated_Image_p5au0bp5au0bp5au (4).webp',
+  'Gemini_Generated_Image_p5au0bp5au0bp5au (5).webp',
+  'Gemini_Generated_Image_p5au0bp5au0bp5au (6).webp',
+  'Gemini_Generated_Image_p5au0bp5au0bp5au (7).webp',
+  'Gemini_Generated_Image_va19dvva19dvva19 (1).webp',
+  'Gemini_Generated_Image_va19dvva19dvva19 (2).webp',
+  'Gemini_Generated_Image_va19dvva19dvva19 (3).webp',
+  'Gemini_Generated_Image_va19dvva19dvva19 (4).webp',
+  'Gemini_Generated_Image_va19dvva19dvva19 (5).webp',
+  'Gemini_Generated_Image_va19dvva19dvva19 (6).webp',
+  'Gemini_Generated_Image_va19dvva19dvva19 (7).webp',
+  'Gemini_Generated_Image_va19dvva19dvva19 (8).webp',
+  'Gemini_Generated_Image_va19dvva19dvva19 (9).webp'
+];
 
 // SVG Platform Icons
 const platformSVGs = {
@@ -1561,10 +1507,10 @@ function loadRemainingContent() {
 
     <!-- Final CTA -->
     <div class="fade-in" style="padding:80px 20px;text-align:center;background:linear-gradient(135deg,#5B7C99 0%,#4A6580 100%);color:#fff">
-      <h2 style="font-size:clamp(28px,5vw,40px);font-weight:700;margin-bottom:16px">Experience Pure Cashmere Luxury</h2>
-      <p style="font-size:18px;opacity:0.9;margin-bottom:30px;max-width:600px;margin-left:auto;margin-right:auto">Only 32 jeanss left in stock. 30-day money-back guarantee. Free returns.</p>
+      <h2 style="font-size:clamp(28px,5vw,40px);font-weight:700;margin-bottom:16px">The Jean You'll Reach For Every Time</h2>
+      <p style="font-size:18px;opacity:0.9;margin-bottom:30px;max-width:600px;margin-left:auto;margin-right:auto">30-day money-back guarantee. Free shipping & returns.</p>
       <button onclick="document.querySelector('.product-hero').scrollIntoView({behavior:'smooth'})" style="background:#fff;color:#5B7C99;border:none;padding:20px 60px;border-radius:12px;font-size:20px;font-weight:800;cursor:pointer;transition:all 0.2s;box-shadow:0 8px 24px rgba(0,0,0,0.2);min-height:64px">
-        CLAIM YOURS NOW
+        SHOP NOW
       </button>
     </div>
   `;
@@ -1578,13 +1524,20 @@ function loadRemainingContent() {
 }
 
 function renderTestimonials(count) {
-  return testimonials.slice(0, count).map(t => `
+  return testimonials.slice(0, count).map((t, i) => `
     <div class="testimonial-card">
       <p class="testimonial-text">${t.text}</p>
-      <div class="testimonial-image-container">
-        <img src="./images/testimonials/${testimonialImages[t.img]}" alt="${t.name} wearing medium wash denim jeans" class="testimonial-image" loading="lazy">
-      </div>
       <div class="testimonial-footer">
+        <div class="testimonial-image-container loading">
+          <img
+            src="./images/testimonials/${testimonialImages[i]}"
+            alt="${t.name}"
+            class="testimonial-image"
+            loading="lazy"
+            onload="this.parentElement.classList.remove('loading')"
+            onerror="this.parentElement.style.display='none'"
+          >
+        </div>
         <div class="testimonial-info">
           <div class="testimonial-name">${t.name}</div>
           <div class="testimonial-platform" style="color:${platformColors[t.platform]}">
@@ -1606,15 +1559,23 @@ function loadMoreReviews() {
 
   remaining.forEach((t, i) => {
     const card = document.createElement('div');
+    const imageIndex = reviewsLoaded + i; // Correct index for images
     card.className = 'testimonial-card';
     card.style.opacity = '0';
     card.style.transform = 'translateY(20px)';
     card.innerHTML = `
       <p class="testimonial-text">${t.text}</p>
-      <div class="testimonial-image-container">
-        <img src="./images/testimonials/${testimonialImages[t.img]}" alt="${t.name} wearing medium wash denim jeans" class="testimonial-image" loading="lazy">
-      </div>
       <div class="testimonial-footer">
+        <div class="testimonial-image-container loading">
+          <img
+            src="./images/testimonials/${testimonialImages[imageIndex]}"
+            alt="${t.name}"
+            class="testimonial-image"
+            loading="lazy"
+            onload="this.parentElement.classList.remove('loading')"
+            onerror="this.parentElement.style.display='none'"
+          >
+        </div>
         <div class="testimonial-info">
           <div class="testimonial-name">${t.name}</div>
           <div class="testimonial-platform" style="color:${platformColors[t.platform]}">
@@ -1639,27 +1600,145 @@ function loadMoreReviews() {
   document.getElementById('loadMoreBtn').style.display = 'none';
 }
 
-// Mobile Sticky CTA - Show after scrolling past hero
+// Mobile Sticky CTA - Show after scrolling past hero (throttled for performance)
 if (window.innerWidth <= 768) {
   let lastScrollY = window.scrollY;
+  let scrollTicking = false;
+
   window.addEventListener('scroll', () => {
-    const stickyCTA = document.getElementById('stickyCTA');
-    const productHero = document.querySelector('.product-hero');
+    if (!scrollTicking) {
+      requestAnimationFrame(() => {
+        const stickyCTA = document.getElementById('stickyCTA');
+        const productHero = document.querySelector('.product-hero');
 
-    if (productHero && stickyCTA) {
-      const heroBottom = productHero.offsetTop + productHero.offsetHeight;
-      const scrolledPastHero = window.scrollY > heroBottom;
-      const scrollingUp = window.scrollY < lastScrollY;
+        if (productHero && stickyCTA) {
+          const currentScrollY = window.scrollY;
+          const heroBottom = productHero.offsetTop + productHero.offsetHeight;
+          const scrolledPastHero = currentScrollY > heroBottom;
+          const scrollingUp = currentScrollY < lastScrollY;
 
-      if (scrolledPastHero && scrollingUp) {
-        stickyCTA.classList.add('visible');
-      } else if (!scrolledPastHero) {
-        stickyCTA.classList.remove('visible');
-      }
+          if (scrolledPastHero && scrollingUp) {
+            stickyCTA.classList.add('visible');
+          } else if (!scrolledPastHero) {
+            stickyCTA.classList.remove('visible');
+          }
 
-      lastScrollY = window.scrollY;
+          lastScrollY = currentScrollY;
+        }
+
+        scrollTicking = false;
+      });
+      scrollTicking = true;
     }
   });
+}
+
+// ===== CUSTOM Y2K JEAN ANIMATIONS =====
+
+// Animation 1: 12+ Hour Craftsmanship Counter (odometer-style)
+function animateCraftsmanshipHours(element, duration = 2000) {
+  const start = 0;
+  const end = 12;
+  const startTime = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // Ease-out cubic for natural deceleration
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = start + (end - start) * eased;
+
+    element.textContent = current < 12 ? Math.floor(current) : '12';
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+// IntersectionObserver for craftsmanship counter
+const craftsmanshipObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counter = document.getElementById('hoursCount');
+      if (counter) {
+        animateCraftsmanshipHours(counter);
+        craftsmanshipObserver.unobserve(entry.target);
+      }
+    }
+  });
+}, { threshold: 0.5 });
+
+// Observe craftsmanship section
+const craftsmanshipSection = document.getElementById('craftsmanshipCounter');
+if (craftsmanshipSection) {
+  craftsmanshipObserver.observe(craftsmanshipSection);
+}
+
+// Animation 4: Stone-Washed Ripple Effect
+const mainImg = document.querySelector('.main-img');
+if (mainImg) {
+  mainImg.addEventListener('click', (e) => {
+    const ripple = document.createElement('div');
+    ripple.className = 'stone-wash-ripple';
+
+    const rect = e.target.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+
+    e.target.parentElement.appendChild(ripple);
+
+    setTimeout(() => ripple.remove(), 1000);
+  });
+}
+
+// Animation 7: Y2K Terminal Text Reveal
+function terminalTypewriter(element, speed = 50) {
+  const text = element.textContent;
+  element.textContent = '';
+  element.style.borderRight = '2px solid #5B7C99';
+
+  let i = 0;
+  const timer = setInterval(() => {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+    } else {
+      clearInterval(timer);
+      // Blink cursor 3 times then remove
+      let blinks = 0;
+      const blinkTimer = setInterval(() => {
+        element.style.borderRight = blinks % 2 === 0 ? 'none' : '2px solid #5B7C99';
+        blinks++;
+        if (blinks > 6) {
+          clearInterval(blinkTimer);
+          element.style.borderRight = 'none';
+        }
+      }, 300);
+    }
+  }, speed);
+}
+
+// IntersectionObserver for terminal text
+const terminalObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      terminalTypewriter(entry.target);
+      terminalObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+// Observe Y2K terminal text
+const y2kText = document.getElementById('y2kTerminalText');
+if (y2kText) {
+  terminalObserver.observe(y2kText);
 }
 
 // Initialize on load
