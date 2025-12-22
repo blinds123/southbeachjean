@@ -33,7 +33,7 @@
 <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
-  ttq.load('D3CVHNBC77U2RE92M7O0');
+  ttq.load('D54E5ARC77U9VM578SI0');
   ttq.page();
   ttq.track('ViewContent', {
     content_id: 'south-beach-jean',
@@ -48,7 +48,7 @@
 <!-- End TikTok Pixel Code -->
 
 <!-- Performance Meta -->
-<meta name="theme-color" content="#5B7C99">
+<meta name="theme-color" content="#2c3e50">
 <meta name="color-scheme" content="light">
 
 <!-- Favicon -->
@@ -67,7 +67,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- Preload Critical Hero Image -->
-<link rel="preload" as="image" href="./images/product/product-01.png" type="image/png" fetchpriority="high">
+<link rel="preload" as="image" href="./images/product/product-01.avif" type="image/avif" fetchpriority="high">
+
+<!-- Lenis Smooth Scrolling - Premium Scroll Experience -->
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 
 <!-- Critical CSS - Ultra-Minimal -->
 <style>
@@ -108,7 +111,162 @@
   --space-10: 5rem;    /* 80px */
   --space-12: 6rem;    /* 96px */
   --space-16: 8rem;    /* 128px */
+
+  /* Premium Motion System - Inspired by landonorris.com */
+  --ease-premium: cubic-bezier(0.65, 0.05, 0, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 0.3s;
+  --duration-medium: 0.6s;
+  --duration-slow: 0.9s;
+  --duration-premium: 0.75s;
 }
+
+/* Lenis Smooth Scroll Overrides */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+.lenis.lenis-scrolling iframe{pointer-events:none}
+
+/* Premium Scroll Reveal Animations */
+.reveal{opacity:0;transform:translateY(60px);transition:opacity var(--duration-premium) var(--ease-premium),transform var(--duration-premium) var(--ease-premium)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-80px);transition:opacity var(--duration-premium) var(--ease-premium),transform var(--duration-premium) var(--ease-premium)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(80px);transition:opacity var(--duration-premium) var(--ease-premium),transform var(--duration-premium) var(--ease-premium)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(0.85);transition:opacity var(--duration-premium) var(--ease-premium),transform var(--duration-premium) var(--ease-premium)}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+
+/* Premium Clip-Path Reveal (landonorris-style) */
+.clip-reveal{clip-path:polygon(0 0,100% 0,100% 0,0 0);transition:clip-path var(--duration-slow) var(--ease-premium)}
+.clip-reveal.visible{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+.clip-reveal-up{clip-path:polygon(0 100%,100% 100%,100% 100%,0 100%);transition:clip-path var(--duration-slow) var(--ease-premium)}
+.clip-reveal-up.visible{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+
+/* Premium Text Split Animation */
+.split-text{overflow:hidden;display:inline-block}
+.split-text .char{display:inline-block;opacity:0;transform:translateY(100%);transition:opacity var(--duration-medium) var(--ease-premium),transform var(--duration-medium) var(--ease-premium)}
+.split-text.visible .char{opacity:1;transform:translateY(0)}
+
+/* Staggered Animation Delays */
+.stagger-1{transition-delay:0.05s}.stagger-2{transition-delay:0.1s}.stagger-3{transition-delay:0.15s}
+.stagger-4{transition-delay:0.2s}.stagger-5{transition-delay:0.25s}.stagger-6{transition-delay:0.3s}
+.stagger-7{transition-delay:0.35s}.stagger-8{transition-delay:0.4s}.stagger-9{transition-delay:0.45s}
+.stagger-10{transition-delay:0.5s}
+
+/* Premium Parallax Layer */
+.parallax-container{overflow:hidden;position:relative}
+.parallax-element{will-change:transform;transition:transform 0.1s linear}
+
+/* Premium SVG Wave Animation */
+.wave-divider{position:relative;width:100%;height:80px;overflow:hidden}
+.wave-divider svg{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:waveFlow 12s linear infinite}
+@keyframes waveFlow{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* Premium Floating Animation */
+@keyframes premiumFloat{0%,100%{transform:translateY(0) rotate(0deg)}25%{transform:translateY(-8px) rotate(1deg)}50%{transform:translateY(0) rotate(0deg)}75%{transform:translateY(-5px) rotate(-1deg)}}
+.floating{animation:premiumFloat 6s ease-in-out infinite}
+.floating-delayed{animation:premiumFloat 6s ease-in-out 1.5s infinite}
+
+/* Premium Glow Pulse */
+@keyframes glowPulse{0%,100%{box-shadow:0 0 20px rgba(91,124,153,0.2),0 0 40px rgba(91,124,153,0.1)}50%{box-shadow:0 0 30px rgba(91,124,153,0.4),0 0 60px rgba(91,124,153,0.2)}}
+.glow-pulse{animation:glowPulse 3s ease-in-out infinite}
+
+/* Premium Gradient Shift */
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.gradient-animate{background-size:200% 200%;animation:gradientShift 8s ease infinite}
+
+/* Premium Magnetic Button Effect */
+.magnetic-btn{position:relative;transition:transform var(--duration-fast) var(--ease-smooth)}
+.magnetic-btn-inner{position:relative;z-index:1;transition:transform var(--duration-fast) var(--ease-smooth)}
+
+/* Premium Line Draw Animation */
+@keyframes lineDraw{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}
+.line-draw{stroke-dasharray:1000;stroke-dashoffset:1000;animation:lineDraw 2s var(--ease-premium) forwards}
+.line-draw.visible{animation-play-state:running}
+
+/* Premium Marquee Scroll (landonorris-style) */
+@keyframes marqueeLeft{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes marqueeRight{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+.marquee{overflow:hidden;white-space:nowrap}
+.marquee-content{display:inline-flex;animation:marqueeLeft 30s linear infinite}
+.marquee-content-reverse{display:inline-flex;animation:marqueeRight 30s linear infinite}
+.marquee:hover .marquee-content,.marquee:hover .marquee-content-reverse{animation-play-state:paused}
+
+/* Premium Image Reveal */
+.image-reveal{position:relative;overflow:hidden}
+.image-reveal::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:#5B7C99;transform:scaleX(1);transform-origin:left;transition:transform var(--duration-slow) var(--ease-premium)}
+.image-reveal.visible::after{transform:scaleX(0);transform-origin:right}
+
+/* Premium Counter Animation */
+@keyframes countUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.count-up{animation:countUp var(--duration-medium) var(--ease-premium) forwards}
+
+/* Premium Skeleton Loading */
+@keyframes skeletonPulse{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skeleton{background:linear-gradient(90deg,#f0f0f0 25%,#e8e8e8 50%,#f0f0f0 75%);background-size:400% 100%;animation:skeletonPulse 1.5s ease-in-out infinite}
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* PREMIUM SVG WAVE DIVIDERS - One-of-a-Kind Custom Design         */
+/* ═══════════════════════════════════════════════════════════════ */
+.wave-section-divider{position:relative;width:100%;overflow:hidden;line-height:0}
+.wave-section-divider svg{position:relative;display:block;width:calc(100% + 1.3px);height:80px}
+.wave-section-divider .wave-path{fill:#5B7C99;opacity:0.08}
+.wave-section-divider .wave-path-2{fill:#5B7C99;opacity:0.12;animation:waveFloat 8s ease-in-out infinite}
+.wave-section-divider .wave-path-3{fill:#5B7C99;opacity:0.06;animation:waveFloat 12s ease-in-out infinite reverse}
+@keyframes waveFloat{0%,100%{transform:translateX(0)}50%{transform:translateX(-20px)}}
+
+/* Premium Shimmer Text Effect */
+.shimmer-text{background:linear-gradient(90deg,#5B7C99 0%,#8EACBF 20%,#5B7C99 40%,#5B7C99 100%);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmerText 3s ease-in-out infinite}
+@keyframes shimmerText{0%{background-position:100% 50%}100%{background-position:-100% 50%}}
+
+/* Premium Glow Button Enhancement */
+.glow-btn{position:relative;overflow:hidden}
+.glow-btn::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:radial-gradient(circle,rgba(255,255,255,0.4),transparent 70%);border-radius:50%;transform:translate(-50%,-50%);transition:width 0.6s var(--ease-expo),height 0.6s var(--ease-expo);z-index:0}
+.glow-btn:hover::before{width:300%;height:300%}
+.glow-btn>*{position:relative;z-index:1}
+
+/* Premium Slide Entrance Effects */
+.slide-in-bottom{opacity:0;transform:translateY(100px) scale(0.95);transition:all var(--duration-premium) var(--ease-expo)}
+.slide-in-bottom.visible{opacity:1;transform:translateY(0) scale(1)}
+.slide-in-left{opacity:0;transform:translateX(-100px) rotateY(15deg);transition:all var(--duration-premium) var(--ease-expo)}
+.slide-in-left.visible{opacity:1;transform:translateX(0) rotateY(0)}
+.slide-in-right{opacity:0;transform:translateX(100px) rotateY(-15deg);transition:all var(--duration-premium) var(--ease-expo)}
+.slide-in-right.visible{opacity:1;transform:translateX(0) rotateY(0)}
+
+/* Premium 3D Card Tilt Effect */
+.card-3d{transform-style:preserve-3d;transition:transform 0.3s var(--ease-smooth)}
+.card-3d:hover{transform:perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.02)}
+
+/* Premium Text Gradient Underline */
+.gradient-underline{position:relative;display:inline-block}
+.gradient-underline::after{content:'';position:absolute;bottom:-4px;left:0;width:100%;height:3px;background:linear-gradient(90deg,#5B7C99,#8EACBF,#5B7C99);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform 0.4s var(--ease-expo)}
+.gradient-underline:hover::after{transform:scaleX(1)}
+
+/* Premium Image Zoom Container */
+.zoom-container{overflow:hidden;border-radius:16px}
+.zoom-container img{transition:transform 0.8s var(--ease-premium)}
+.zoom-container:hover img{transform:scale(1.08)}
+
+/* Premium Blur Fade Effect */
+.blur-fade{opacity:0;filter:blur(10px);transform:translateY(30px);transition:opacity var(--duration-premium) var(--ease-premium),filter var(--duration-premium) var(--ease-premium),transform var(--duration-premium) var(--ease-premium)}
+.blur-fade.visible{opacity:1;filter:blur(0);transform:translateY(0)}
+
+/* Premium Rotate Entrance */
+.rotate-in{opacity:0;transform:rotate(-10deg) scale(0.9);transform-origin:center center;transition:all var(--duration-premium) var(--ease-bounce)}
+.rotate-in.visible{opacity:1;transform:rotate(0) scale(1)}
+
+/* Premium Focus States */
+.premium-focus:focus{outline:none;box-shadow:0 0 0 3px rgba(91,124,153,0.3),0 0 0 6px rgba(91,124,153,0.1)}
+.premium-focus:focus:not(:focus-visible){box-shadow:none}
+.premium-focus:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(91,124,153,0.3),0 0 0 6px rgba(91,124,153,0.1)}
+
+/* Premium Cursor Follower (optional enhancement) */
+.cursor-glow{position:fixed;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(91,124,153,0.08) 0%,transparent 70%);pointer-events:none;transform:translate(-50%,-50%);z-index:9999;opacity:0;transition:opacity 0.3s ease}
+.cursor-glow.active{opacity:1}
 
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{font-family:'Montserrat',sans-serif;color:#1a1a1a;line-height:var(--leading-relaxed);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100vw}
@@ -142,6 +300,10 @@ h1,h2,h3,.section-title,.testimonial-name,.faq-item h3{font-family:'Cormorant Ga
 .cta-secondary:hover{background:linear-gradient(135deg,#fce4e9 0%,#f8d0d8 100%);transform:translateY(-3px);box-shadow:0 8px 24px rgba(91,124,153,0.3)}
 .cta-secondary:active{transform:translateY(0) scale(0.98)}
 .btn-subtitle{font-size:13px;font-weight:600;opacity:1;margin-top:6px;position:relative;z-index:2;text-transform:none;letter-spacing:0}
+
+/* Magnetic Button Effect - Smooth Micro-interaction */
+.magnetic-btn{transition:transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);will-change:transform}
+
 .fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
@@ -449,17 +611,56 @@ h1,h2,h3,.section-title,.testimonial-name,.faq-item h3{font-family:'Cormorant Ga
 
 <body>
 
+<!-- Premium Cursor Glow Effect (Desktop Only) -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- Premium Animated Marquee Banner -->
+<div class="marquee gradient-animate" style="background:linear-gradient(135deg,#5B7C99 0%,#4A6580 50%,#3D5368 100%);padding:12px 0;overflow:hidden">
+  <div class="marquee-content" style="display:inline-flex;gap:60px;align-items:center">
+    <span style="color:#fff;font-size:13px;font-weight:600;letter-spacing:1px;display:flex;align-items:center;gap:8px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      FREE SHIPPING ON ALL ORDERS
+    </span>
+    <span style="color:rgba(255,255,255,0.6)">|</span>
+    <span style="color:#fff;font-size:13px;font-weight:600;letter-spacing:1px;display:flex;align-items:center;gap:8px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+      30-DAY RETURNS
+    </span>
+    <span style="color:rgba(255,255,255,0.6)">|</span>
+    <span style="color:#fff;font-size:13px;font-weight:600;letter-spacing:1px;display:flex;align-items:center;gap:8px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6z"/></svg>
+      10,000+ 5-STAR REVIEWS
+    </span>
+    <span style="color:rgba(255,255,255,0.6)">|</span>
+    <span style="color:#fff;font-size:13px;font-weight:600;letter-spacing:1px;display:flex;align-items:center;gap:8px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      FREE SHIPPING ON ALL ORDERS
+    </span>
+    <span style="color:rgba(255,255,255,0.6)">|</span>
+    <span style="color:#fff;font-size:13px;font-weight:600;letter-spacing:1px;display:flex;align-items:center;gap:8px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+      30-DAY RETURNS
+    </span>
+    <span style="color:rgba(255,255,255,0.6)">|</span>
+    <span style="color:#fff;font-size:13px;font-weight:600;letter-spacing:1px;display:flex;align-items:center;gap:8px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6z"/></svg>
+      10,000+ 5-STAR REVIEWS
+    </span>
+    <span style="color:rgba(255,255,255,0.6)">|</span>
+  </div>
+</div>
+
 <!-- Main Content -->
 <div class="main-content" id="mainContent">
   <div class="container">
     <div class="product-hero">
-      <div class="gallery">
+      <div class="gallery zoom-container">
         <img class="main-img fade-in visible" id="heroImage" src="./images/product/product-01.avif" alt="Luxurious medium wash denim jeans - 100% premium cotton crew neck in rich vintage medium blue, showcasing soft texture and timeless elegant design" width="600" height="800" loading="eager" decoding="async">
         <div id="thumbs" style="display:flex;gap:10px;margin-top:15px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin"></div>
       </div>
 
       <div class="product-info">
-        <h1 class="fade-in visible">South Beach Jean</h1>
+        <h1 class="fade-in visible shimmer-text">South Beach Jean</h1>
         <p class="tagline fade-in visible">Y2K Perfection Meets Everyday Comfort</p>
 
         <div class="price-box fade-in visible">
@@ -576,13 +777,13 @@ h1,h2,h3,.section-title,.testimonial-name,.faq-item h3{font-family:'Cormorant Ga
 
         <!-- Dual Pricing CTAs -->
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
-          <button class="cta-btn cta-secondary fade-in visible" id="preOrderCTA" onclick="handleAddToCart('preorder', 19)">
+          <button class="cta-btn cta-secondary magnetic-btn glow-btn fade-in visible" id="preOrderCTA" onclick="handleAddToCart('preorder', 19)">
             <span style="font-size:20px">PRE-ORDER NOW</span>
             <div style="font-size:24px;font-weight:700;margin:8px 0">$19</div>
             <div class="btn-subtitle" style="font-size:12px">Ships in 2-3 weeks</div>
           </button>
 
-          <button class="cta-btn cta-primary fade-in visible" id="primaryCTA" onclick="handleAddToCart('ordernow', 59)">
+          <button class="cta-btn cta-primary magnetic-btn glow-btn fade-in visible" id="primaryCTA" onclick="handleAddToCart('ordernow', 59)">
             <span style="font-size:20px">ORDER NOW</span>
             <div style="font-size:24px;font-weight:700;margin:8px 0">$59</div>
             <div class="btn-subtitle" style="font-size:12px">Ships in 1-2 days</div>
@@ -859,23 +1060,141 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 3000);
     }
   }, 15000); // 15 seconds
-});
 
-// ESC key to close popup
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    const popup = document.getElementById('orderBumpPopup');
-    if (popup && popup.style.display === 'flex') {
-      closeOrderBumpPopup();
+  // ═══════════════════════════════════════════════════════════════
+  // PREMIUM ANIMATION SYSTEM - landonorris.com Inspired
+  // ═══════════════════════════════════════════════════════════════
+
+  // Initialize Lenis Smooth Scrolling
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential easing
+    direction: 'vertical',
+    gestureDirection: 'vertical',
+    smooth: true,
+    smoothTouch: false,
+    touchMultiplier: 2
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Scroll-Triggered Reveal Animation Observer
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Optional: unobserve after reveal for performance
+        if (!entry.target.dataset.keepObserving) {
+          revealObserver.unobserve(entry.target);
+        }
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  // Apply reveal classes to major sections
+  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .clip-reveal, .clip-reveal-up, .blur-fade, .slide-in-bottom, .slide-in-left, .slide-in-right, .rotate-in');
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // Dynamic reveal class application to key elements
+  const sectionsToReveal = [
+    { selector: '.product-hero .gallery', class: 'reveal-scale' },
+    { selector: '.product-hero .product-info', class: 'reveal-right' },
+    { selector: '.testimonials-grid', class: 'reveal' },
+    { selector: '.trust-section', class: 'reveal' },
+    { selector: '.product-tabs', class: 'reveal' }
+  ];
+
+  sectionsToReveal.forEach(item => {
+    const el = document.querySelector(item.selector);
+    if (el && !el.classList.contains('reveal') && !el.classList.contains('visible')) {
+      el.classList.add(item.class);
+      revealObserver.observe(el);
     }
-  }
-});
+  });
 
-// Click outside popup to close
-document.getElementById('orderBumpPopup')?.addEventListener('click', function(e) {
-  if (e.target === this) {
-    closeOrderBumpPopup();
+  // Cursor Glow Effect (Desktop Only)
+  const cursorGlow = document.getElementById('cursorGlow');
+  if (cursorGlow && window.innerWidth > 768) {
+    let mouseX = 0, mouseY = 0;
+    let glowX = 0, glowY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+      // Smooth follow with lag
+      glowX += (mouseX - glowX) * 0.1;
+      glowY += (mouseY - glowY) * 0.1;
+      cursorGlow.style.transform = `translate(${glowX - 150}px, ${glowY - 150}px)`;
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Show cursor glow on interactive elements
+    document.querySelectorAll('button, a, .size-btn, .cta-btn').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursorGlow.style.opacity = '1';
+        cursorGlow.style.width = '400px';
+        cursorGlow.style.height = '400px';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursorGlow.style.opacity = '0.5';
+        cursorGlow.style.width = '300px';
+        cursorGlow.style.height = '300px';
+      });
+    });
   }
+
+  // Magnetic Button Effect
+  document.querySelectorAll('.magnetic-btn').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0, 0)';
+    });
+  });
+
+  // Parallax scroll effect for hero image
+  const heroImage = document.getElementById('heroImage');
+  if (heroImage) {
+    lenis.on('scroll', ({ scroll }) => {
+      const parallaxValue = scroll * 0.15;
+      if (parallaxValue < 200) {
+        heroImage.style.transform = `translateY(${parallaxValue}px) scale(${1 + scroll * 0.0001})`;
+      }
+    });
+  }
+
+  // Add stagger delays and 3D effect to testimonial cards
+  document.querySelectorAll('.testimonial-card').forEach((card, index) => {
+    card.classList.add('reveal');
+    card.classList.add('card-3d');
+    card.classList.add(`stagger-${Math.min(index % 6 + 1, 6)}`);
+    revealObserver.observe(card);
+  });
+
+  // Add 3D card effect to FAQ items
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.classList.add('card-3d');
+  });
+
+  // Initialize magnetic button effects
+  initMagneticButtons();
+
+  console.log('✨ Premium Animation System Initialized');
 });
 
 // Product Images
@@ -930,6 +1249,19 @@ function selectSize(button, size) {
   button.style.borderColor = '#5B7C99';
 
   window.selectedSize = size;
+
+  // TikTok AddToCart event
+  if (typeof ttq !== 'undefined') {
+    ttq.track('AddToCart', {
+      content_id: 'south-beach-jean',
+      content_type: 'product',
+      content_name: 'South Beach Jean',
+      quantity: 1,
+      price: 19,
+      currency: 'USD',
+      value: 19
+    });
+  }
 }
 
 // SimpleSwap Pool Integration
@@ -977,8 +1309,9 @@ async function getExchangeFromPool(amountUSD) {
 }
 
 async function processOrder(amountUSD) {
+  // TikTok InitiateCheckout event (payment happens on SimpleSwap)
   if (typeof ttq !== 'undefined') {
-    ttq.track('Purchase', {
+    ttq.track('InitiateCheckout', {
       content_id: 'south-beach-jean',
       content_type: 'product',
       content_name: 'South Beach Jean',
@@ -1006,27 +1339,27 @@ function handleAddToCart(type, price) {
 }
 
 
-function showOrderBumpPopup(type) {
-  // Legacy function - popup element removed from HTML
-  // Direct to checkout at standard price
-  processOrder(59);
-}
+// Magnetic Button Effect - Premium Micro-interaction
+function initMagneticButtons() {
+  const magneticButtons = document.querySelectorAll('.magnetic-btn');
 
-function closeOrderBumpPopup() {
-  document.getElementById('orderBumpPopup').style.display = 'none';
-  document.body.style.overflow = 'auto';
-}
+  magneticButtons.forEach(btn => {
+    btn.addEventListener('mousemove', function(e) {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
 
-function acceptOrderBump() {
-  closeOrderBumpPopup();
-  // Process order with $10 order bump: $59 + $10 = $69
-  processOrder(69);
-}
+      // Magnetic pull effect - max 20px movement
+      const moveX = x * 0.3;
+      const moveY = y * 0.3;
 
-function declineOrderBump() {
-  closeOrderBumpPopup();
-  // Process order at base price
-  processOrder(59);
+      btn.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.02)`;
+    });
+
+    btn.addEventListener('mouseleave', function() {
+      btn.style.transform = 'translate(0, 0) scale(1)';
+    });
+  });
 }
 
 // FAQ Accordion Toggle
@@ -1341,8 +1674,17 @@ function loadRemainingContent() {
   const lazyContent = document.getElementById('lazyContent');
 
   lazyContent.innerHTML = `
+    <!-- Premium Wave Divider 1 -->
+    <div class="wave-section-divider">
+      <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="wave-path" d="M0,40 C150,20 350,60 600,40 C850,20 1050,60 1200,40 L1200,80 L0,80 Z"></path>
+        <path class="wave-path-2" d="M0,50 C200,30 400,70 600,50 C800,30 1000,70 1200,50 L1200,80 L0,80 Z"></path>
+        <path class="wave-path-3" d="M0,60 C250,40 450,75 600,60 C750,45 950,75 1200,60 L1200,80 L0,80 Z"></path>
+      </svg>
+    </div>
+
     <!-- FAQ Section -->
-    <div class="fade-in" style="padding:60px 20px;background:#f9fafb">
+    <div class="reveal slide-in-bottom" style="padding:60px 20px;background:#f9fafb">
       <div style="max-width:900px;margin:0 auto">
         <h2 style="text-align:center;font-size:36px;font-weight:800;margin-bottom:12px;color:#1a1a1a">Frequently Asked Questions</h2>
         <p style="text-align:center;color:#666;font-size:17px;margin-bottom:50px">Everything you need to know about the South Beach Jean</p>
@@ -1447,8 +1789,17 @@ function loadRemainingContent() {
       </div>
     </div>
 
+    <!-- Premium Wave Divider 2 -->
+    <div class="wave-section-divider" style="transform:rotate(180deg)">
+      <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="wave-path" d="M0,35 C200,15 400,55 600,35 C800,15 1000,55 1200,35 L1200,80 L0,80 Z"></path>
+        <path class="wave-path-2" d="M0,45 C180,25 420,65 600,45 C780,25 1020,65 1200,45 L1200,80 L0,80 Z"></path>
+        <path class="wave-path-3" d="M0,55 C220,35 480,70 600,55 C720,40 980,70 1200,55 L1200,80 L0,80 Z"></path>
+      </svg>
+    </div>
+
     <!-- Featured Review Carousel Section -->
-    <div class="fade-in" style="padding:60px 20px;background:#fff;border-bottom:2px solid #f0f0f0">
+    <div class="reveal blur-fade" style="padding:60px 20px;background:#fff;border-bottom:2px solid #f0f0f0">
       <div style="max-width:1200px;margin:0 auto">
         <h2 style="text-align:center;font-size:36px;font-weight:800;margin-bottom:12px;color:#1a1a1a;letter-spacing:-0.02em">What Our Customers Are Saying</h2>
         <p style="text-align:center;color:#666;font-size:17px;margin-bottom:50px">Real reviews from verified purchases</p>
@@ -1471,8 +1822,17 @@ function loadRemainingContent() {
       </div>
     </div>
 
+    <!-- Premium Wave Divider 3 -->
+    <div class="wave-section-divider">
+      <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="wave-path" d="M0,45 C180,25 380,65 600,45 C820,25 1020,65 1200,45 L1200,80 L0,80 Z"></path>
+        <path class="wave-path-2" d="M0,55 C220,35 420,70 600,55 C780,40 1000,70 1200,55 L1200,80 L0,80 Z"></path>
+        <path class="wave-path-3" d="M0,65 C160,45 440,75 600,65 C760,55 1040,75 1200,65 L1200,80 L0,80 Z"></path>
+      </svg>
+    </div>
+
     <!-- Testimonials Section -->
-    <div class="fade-in" style="padding:60px 20px;background:#f8f9fa">
+    <div class="reveal slide-in-left" style="padding:60px 20px;background:#f8f9fa">
       <div style="max-width:1200px;margin:0 auto">
         <h2 style="text-align:center;font-size:32px;font-weight:800;margin-bottom:20px;color:#1a1a1a">More Customer Reviews</h2>
 
