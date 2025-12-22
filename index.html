@@ -418,6 +418,21 @@ h1,h2,h3,.section-title,.testimonial-name,.faq-item h3{font-family:'Cormorant Ga
 .social-proof-icon{width:40px;height:40px;margin:0 auto 12px}
 .certification-badge{display:inline-flex;align-items:center;gap:8px;background:#f8fff8;border:2px solid #28a745;border-radius:8px;padding:10px 16px;font-size:13px;font-weight:600;color:#28a745}
 
+/* Order Bump Popup - $10 Upsell */
+.order-bump-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:999998;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all 0.3s ease}
+.order-bump-overlay.active{opacity:1;visibility:visible}
+.order-bump-content{background:#fff;border-radius:20px;padding:40px;max-width:600px;width:90%;max-height:85vh;overflow-y:auto;transform:scale(0.9) translateY(20px);transition:transform 0.3s ease;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.order-bump-overlay.active .order-bump-content{transform:scale(1) translateY(0)}
+.order-bump-badge{display:inline-block;background:linear-gradient(135deg,#dc3545 0%,#ff6b7a 100%);color:#fff;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:8px}
+.order-bump-product{display:grid;grid-template-columns:140px 1fr;gap:20px;background:#f8f9fa;padding:20px;border-radius:12px;margin-top:24px}
+.order-bump-accept:hover{background:#4a6b85;transform:translateY(-2px);box-shadow:0 8px 20px rgba(91,124,153,0.3)}
+.order-bump-decline:hover{border-color:#5B7C99;color:#5B7C99}
+@media(max-width:768px){
+.order-bump-content{padding:32px 24px}
+.order-bump-product{grid-template-columns:1fr;gap:16px}
+.order-bump-image>div{height:150px !important}
+}
+
 /* Exit Transition Overlay - Seamless redirect to payment */
 .exit-transition{position:fixed;inset:0;background:#FFFFFF;z-index:999999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 0.3s ease,visibility 0.3s ease}
 .exit-transition.active{opacity:1;visibility:visible}
@@ -1327,8 +1342,47 @@ function handleAddToCart(type, price) {
     window.selectedSize = 'M';
   }
 
-  // Process order at selected price point ($19 or $59)
-  processOrder(price);
+  // Show order bump popup instead of immediately processing
+  showOrderBump();
+}
+
+// Show Order Bump Popup
+function showOrderBump() {
+  const popup = document.getElementById('orderBumpPopup');
+  if (popup) {
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+  }
+}
+
+// Hide Order Bump Popup
+function hideOrderBump() {
+  const popup = document.getElementById('orderBumpPopup');
+  if (popup) {
+    popup.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+  }
+}
+
+// Accept Order Bump - Add $10 and proceed
+function acceptOrderBump() {
+  // Add $10 to the current price
+  window.currentPrice = (window.currentPrice || 0) + 10;
+
+  // Hide the popup
+  hideOrderBump();
+
+  // Process order with new price (original + $10)
+  processOrder(window.currentPrice);
+}
+
+// Decline Order Bump - Continue with original price
+function declineOrderBump() {
+  // Hide the popup
+  hideOrderBump();
+
+  // Process order with original price
+  processOrder(window.currentPrice);
 }
 
 
@@ -2318,6 +2372,56 @@ if (document.readyState === 'loading') {
     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
   </svg>
   <span>Size XS just sold out!</span>
+</div>
+
+<!-- Order Bump Popup - $10 Upsell -->
+<div id="orderBumpPopup" class="order-bump-overlay">
+  <div class="order-bump-content">
+    <div class="order-bump-badge">⚡ LIMITED TIME OFFER</div>
+
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:32px;margin:20px 0 16px;color:#1a1a1a">
+      Complete Your Look
+    </h2>
+
+    <p style="font-size:16px;color:#666;margin-bottom:24px;line-height:1.6">
+      Add a <strong>Vintage Leather Belt</strong> that perfectly matches your South Beach Jean for just <strong style="color:#5B7C99">$10 more</strong> (70% off retail price of $35)
+    </p>
+
+    <div class="order-bump-product">
+      <div class="order-bump-image">
+        <div style="background:linear-gradient(135deg,#f5f5f5 0%,#e0e0e0 100%);width:100%;height:200px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:48px">
+          🔥
+        </div>
+      </div>
+      <div class="order-bump-details">
+        <h3 style="font-size:20px;margin:0 0 8px;color:#1a1a1a">Premium Leather Belt</h3>
+        <ul style="font-size:14px;color:#666;margin:0;padding-left:20px;line-height:1.8">
+          <li>100% genuine leather</li>
+          <li>Matches the vintage wash perfectly</li>
+          <li>Adjustable sizing (fits 24-32)</li>
+          <li>Ships with your jeans</li>
+        </ul>
+        <div style="margin-top:12px">
+          <span style="font-size:24px;font-weight:700;color:#5B7C99">$10</span>
+          <span style="font-size:16px;color:#999;text-decoration:line-through;margin-left:8px">$35</span>
+          <span style="background:#dc3545;color:#fff;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:600;margin-left:8px">70% OFF</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;gap:12px;margin-top:32px">
+      <button class="order-bump-accept" onclick="acceptOrderBump()" style="background:#5B7C99;color:#fff;border:none;padding:18px 32px;border-radius:8px;font-size:18px;font-weight:600;cursor:pointer;transition:all 0.3s">
+        ✓ Yes! Add Belt For $10
+      </button>
+      <button class="order-bump-decline" onclick="declineOrderBump()" style="background:#fff;color:#666;border:2px solid #e0e0e0;padding:16px 32px;border-radius:8px;font-size:16px;cursor:pointer;transition:all 0.3s">
+        No Thanks, Continue Without Belt
+      </button>
+    </div>
+
+    <div style="text-align:center;margin-top:20px;font-size:13px;color:#999">
+      ⚡ This offer is only available at checkout
+    </div>
+  </div>
 </div>
 
 <!-- Exit Transition Overlay - Seamless redirect to payment -->
